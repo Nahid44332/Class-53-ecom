@@ -1,162 +1,514 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Organic Pure Vegetable</title>
-    <link rel="stylesheet" href="frontend/style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>E-commerce Website</title>
+	@include('frontend.include.style')
 </head>
 <body>
-    <header class="header-section">
-        <div>
-            <h1 class="hero">Organic Pure
-                Vegetable</h1>
-            <p class="hero-1">Be fit your health. Enjoy the flavor of freshly picked product</p>
-            <a href="#Checkout" class="btn button">Buy Now</a>
-        </div>
-    </header>
-    <!-- product Descriptions -->
-     <section>
-        <div class="container mt-5 why">
-            <h2>Why Choose Our Product</h2>
-        <div class="row">
-            <div class="col-sm-12 col-md-4 col-lg-4">
-                <div class="Product-card">
-                    <img src="frontend/img/1.jpeg" height="190" width="210">
-                    <h5>Feature-1</h5>
-                    <p>This is a premium product</p>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4 col-lg-4">
-                <div class="Product-card">
-                    <img src="frontend/img/1.jpeg" height="190" width="210">
-                    <h5>Feature-2</h5>
-                    <p>This is a premium product</p>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4 col-lg-4">
-                <div class="Product-card">
-                    <img src="frontend/img/2.jpeg" height="190" width="210">
-                    <h5>Feature-3</h5>
-                    <p>This is a premium product</p>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4 col-lg-4">
-                <div class="Product-card">
-                <img src="frontend/img/3.jpeg" height="190" width="210">
-                <h5>Feature-4</h5>
-                <p>This is a premium product</p>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4 col-lg-4">
-                <div class="Product-card">
-                    <img src="frontend/img/4.jpeg" height="190" width="210">
-                    <h5>Feature-5</h5>
-                    <p>This is a premium product</p>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4 col-lg-4">
-                <div class="Product-card">
-                    <img src="frontend/img/5.jpeg" height="190" width="210">
-                    <h5>Feature-6</h5>
-                    <p>This is a premium product</p>
-                </div>
-            </div>
-        </div>
-        </div>
-        </div>
-     </section>
-     <!-- customer Review -->
-      <section>
-        <div class="container mt-5 why">
-            <h2>What our Customer Say</h2>
-            <div class="row">
-                <div class="col-sm-12 col-md-4 col-lg-4">
-                    <div class="Product-card">
-                        <img src="frontend/img/7.jpeg" height="190" width="210">
-                        <h5>Adul Vai</h5>
-                        <p>This Organic Vegetable Is Very Healthfull and Frash Mind</p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 col-lg-4">
-                    <div class="Product-card">
-                        <img src="frontend/img/8.jpeg" height="190" width="210">
-                        <h5>Kuddus Nana</h5>
-                        <p>This product Is Best Organic Vegetable in al of country</p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 col-lg-4">
-                    <div class="Product-card">
-                        <img src="frontend/img/9.jpeg" height="190" width="210">
-                        <h5>Bilkish</h5>
-                        <p>It's Organic Vegetable Product our Country's Frash Product</p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 col-lg-4">
-                    <div  class="Product-card">
-                        <img src="frontend/img/10.jpeg" height="190" width="210">
-                        <h5>Sokina Akter</h5>
-                        <p>It's Organic Vegetable Product our Country's Frash Product</p>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 col-lg-4">
-                    <div  class="Product-card">
-                        <img src="frontend/img/11.jpeg" height="190" width="210">
-                        <h5>Sefali Begum</h5>
-                        <p>It's Organic Vegetable Product our Country's Frash Product</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </section>
-      <!-- cheakout -->
-       <section class="cheakout-section">
-            <div class="container mt-5 cheakout" id="Checkout">
-                <h2>Checkout</h2>
-                <form action="" method="" class="cheakout-form">
-                    <div class="mt-3">
-                        <label for="" class="form-label">Full Name*</label>
-                        <input type="text" class="form-control" name="" value="" id="" placeholder="Enter Full Name" required>
-                    </div>
-                    <div class="mt-3">
-                        <label for="" class="form-label">Phone Number*</label>
-                        <input type="text" class="form-control" name="" value="" id="" placeholder="Enter Phone Number" required>
-                    </div>
-                    <div class="mt-3">
-                        <label for="" class="form-label">Address*</label>
-                        <textarea class="form-control" name="" id="" placeholder="Enter Full Address"></textarea>
-                    </div>
-                    <div class="mt-3">
-                        <label for="" class="form-label">Area*</label>
-                        <select class="form-control" name="" id="">
-                            <option value="" selected disabled>Select Area</option>
-                            <option value="In-Dhaka">Inside Dhaka (80)</option>
-                            <option value="Out-Dhaka">Outside Dhaka (150)</option>
-                        </select>
-                    </div>
-                    <button type="submit" class="btn button-1 mt-2">Confirm Order</button>
-                </form>
-            </div>
-       </section>
-       <!-- footer -->
-        <footer class="footer">
-            <div class="mt-5 container">
-                <div class="footer-contain">
-                    <div class="footer-logo">
-                        <img src="https://placehold.co/150x60" alt="">
-                    </div>
-                    <div class="social-icons">
-                        <a href="#"><i class="fa-brands fa-facebook icon"></i></a>
-                        <a href="#"><i class="fa-brands fa-youtube icon-2"></i></a>
-                        <a href="#"><i class="fa-brands fa-x-twitter icon-3"></i></a>
-                        <a href="#"><i class="fa-brands fa-linkedin icon-4"></i></a>
-                    </div>
-                    <p>&copy 2024 Landingpage. All Right Reserves</p>
-                </div>
-            </div>
-        </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	@include('frontend.include.header')
+	<main>
+		<!-- /Home Slider -->
+		<section class="home-slider-section">
+			<div class="container">
+				<div class="home__slider-sec-wrap">
+					<div class="home__category-outer">
+						<ul class="header__category-list">
+							<li class="header__category-list-item item-has-submenu">
+								<a href="category-product.html" class="header__category-list-item-link">
+									<img src="{{asset('/frontend/images/product.png')}}" alt="category">
+									Test Category
+								</a>
+								<ul class="header__nav-item-category-submenu">
+									<li class="header__category-submenu-item">
+										<a href="sub-category-product.html" class="header__category-submenu-item-link">
+											Test Subcategory
+										</a>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<div class="home__slider-items-wrapper">
+						<div class="home__slider-item-outer">
+							<img src="{{asset('/frontend/images/slider.jpg')}}" alt="image" class="home__slider-item-image">
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- /Home Slider -->
+
+		<!-- Categoris Slider -->
+		<section class="categoris-slider-section">
+			<div class="container">
+				<div class="section-title-outer">
+					<h1 class="title">
+						Categories
+					</h1>
+				</div>
+				<div class="categoris-items-wrapper owl-carousel">
+					<a href="#" class="categoris-item">
+						<img src="{{asset('/frontend/images/product.png')}}" alt="category" />
+						<h6 class="categoris-name">
+							Test Category
+						</h6>
+						<span class="items-number">1 items</span>
+					</a>
+				</div>
+			</div>
+		</section>
+		<!-- /Categoris Slider -->
+		<!-- Banner -->
+		<section class="banner-section">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-6 col-sm-6">
+						<div class="banner-item-outer">
+							<img src="{{asset('/frontend/images/banner.jpeg')}}" alt="banner image" />
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-6">
+						<div class="banner-item-outer">
+							<img src="{{asset('/frontend/images/banner.jpeg')}}" alt="banner image" />
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-6 col-sm-6">
+						<div class="banner-item-outer">
+							<img src="{{asset('/frontend/images/banner.jpeg')}}" alt="banner image" />
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- /Banner -->
+		<!-- Popular Product -->
+		<section class="product-section">
+			<div class="container">
+				<div class="section-title-outer">
+					<h1 class="title">
+						Hot Products
+					</h1>
+					<a href="type-products.html" class="product-view-all-btn">
+						View All
+					</a>
+				</div>
+				<div class="product-items-wrapper">
+					<div class="product__item-outer">
+						<div class="product__item-image-outer">
+							<a href="details.html" class="product__item-image-inner">
+								<img src="{{asset('/frontend/images/product.png')}}" alt="Product Image" />
+							</a>
+							<div class="product__item-add-cart-btn-outer">
+								<a href="details.html" class="product__item-add-cart-btn-inner">
+									Add to Cart
+								</a>
+							</div>
+							<div class="product__type-badge-outer">
+								<span class="product__type-badge-inner">
+									Hot
+								</span>
+							</div>
+						</div>
+						<div class="product__item-info-outer">
+							<a href="#" class="product__item-name">
+								Test Product
+							</a>
+							<div class="product__item-price-outer">
+								<div class="product__item-discount-price">
+									<del>400 Tk.</del>
+								</div>
+								<div class="product__item-regular-price">
+									<span>300 Tk.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product__item-outer">
+						<div class="product__item-image-outer">
+							<a href="details.html" class="product__item-image-inner">
+								<img src="{{asset('/frontend/images/product.png')}}" alt="Product Image" />
+							</a>
+							<div class="product__item-add-cart-btn-outer">
+								<a href="details.html" class="product__item-add-cart-btn-inner">
+									Add to Cart
+								</a>
+							</div>
+							<div class="product__type-badge-outer">
+								<span class="product__type-badge-inner">
+									Hot
+								</span>
+							</div>
+						</div>
+						<div class="product__item-info-outer">
+							<a href="#" class="product__item-name">
+								Test Product
+							</a>
+							<div class="product__item-price-outer">
+								<div class="product__item-discount-price">
+									<del>400 Tk.</del>
+								</div>
+								<div class="product__item-regular-price">
+									<span>300 Tk.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product__item-outer">
+						<div class="product__item-image-outer">
+							<a href="details.html" class="product__item-image-inner">
+								<img src="{{asset('/frontend/images/product.png')}}" alt="Product Image" />
+							</a>
+							<div class="product__item-add-cart-btn-outer">
+								<a href="details.html" class="product__item-add-cart-btn-inner">
+									Add to Cart
+								</a>
+							</div>
+							<div class="product__type-badge-outer">
+								<span class="product__type-badge-inner">
+									Hot
+								</span>
+							</div>
+						</div>
+						<div class="product__item-info-outer">
+							<a href="#" class="product__item-name">
+								Test Product
+							</a>
+							<div class="product__item-price-outer">
+								<div class="product__item-discount-price">
+									<del>400 Tk.</del>
+								</div>
+								<div class="product__item-regular-price">
+									<span>300 Tk.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- /Popular Product -->
+		<!-- Popular Product -->
+		<section class="product-section">
+			<div class="container">
+				<div class="section-title-outer">
+					<h1 class="title">
+						New Arrival
+					</h1>
+					<a href="type-products.html" class="product-view-all-btn">
+						View All
+					</a>
+				</div>
+				<div class="product-items-wrapper">
+					<div class="product__item-outer">
+						<div class="product__item-image-outer">
+							<a href="details.html" class="product__item-image-inner">
+								<img src="{{asset('/frontend/images/product1.jpg')}}" alt="Product Image" />
+							</a>
+							<div class="product__item-add-cart-btn-outer">
+								<a href="details.html" class="product__item-add-cart-btn-inner">
+									Add to Cart
+								</a>
+							</div>
+							<div class="product__type-badge-outer">
+								<span class="product__type-badge-inner">
+									New
+								</span>
+							</div>
+						</div>
+						<div class="product__item-info-outer">
+							<a href="#" class="product__item-name">
+								Test Product
+							</a>
+							<div class="product__item-price-outer">
+								<div class="product__item-discount-price">
+									<del>400 Tk.</del>
+								</div>
+								<div class="product__item-regular-price">
+									<span>300 Tk.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product__item-outer">
+						<div class="product__item-image-outer">
+							<a href="details.html" class="product__item-image-inner">
+								<img src="{{asset('/frontend/images/product.png')}}" alt="Product Image" />
+							</a>
+							<div class="product__item-add-cart-btn-outer">
+								<a href="details.html" class="product__item-add-cart-btn-inner">
+									Add to Cart
+								</a>
+							</div>
+							<div class="product__type-badge-outer">
+								<span class="product__type-badge-inner">
+									Hot
+								</span>
+							</div>
+						</div>
+						<div class="product__item-info-outer">
+							<a href="#" class="product__item-name">
+								Test Product
+							</a>
+							<div class="product__item-price-outer">
+								<div class="product__item-discount-price">
+									<del>400 Tk.</del>
+								</div>
+								<div class="product__item-regular-price">
+									<span>300 Tk.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product__item-outer">
+						<div class="product__item-image-outer">
+							<a href="details.html" class="product__item-image-inner">
+								<img src="{{asset('/frontend/images/product.png')}}" alt="Product Image" />
+							</a>
+							<div class="product__item-add-cart-btn-outer">
+								<a href="details.html" class="product__item-add-cart-btn-inner">
+									Add to Cart
+								</a>
+							</div>
+							<div class="product__type-badge-outer">
+								<span class="product__type-badge-inner">
+									Hot
+								</span>
+							</div>
+						</div>
+						<div class="product__item-info-outer">
+							<a href="#" class="product__item-name">
+								Test Product
+							</a>
+							<div class="product__item-price-outer">
+								<div class="product__item-discount-price">
+									<del>400 Tk.</del>
+								</div>
+								<div class="product__item-regular-price">
+									<span>300 Tk.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- /Popular Product -->
+		<!-- Popular Product -->
+		<section class="product-section">
+			<div class="container">
+				<div class="section-title-outer">
+					<h1 class="title">
+						Regular Products
+					</h1>
+					<a href="type-products.html" class="product-view-all-btn">
+						View All
+					</a>
+				</div>
+				<div class="product-items-wrapper">
+					<div class="product__item-outer">
+						<div class="product__item-image-outer">
+							<a href="details.html" class="product__item-image-inner">
+								<img src="{{asset('/frontend/images/product.png')}}" alt="Product Image" />
+							</a>
+							<div class="product__item-add-cart-btn-outer">
+								<a href="details.html" class="product__item-add-cart-btn-inner">
+									Add to Cart
+								</a>
+							</div>
+							<div class="product__type-badge-outer">
+								<span class="product__type-badge-inner">
+									Regular
+								</span>
+							</div>
+						</div>
+						<div class="product__item-info-outer">
+							<a href="#" class="product__item-name">
+								Test Product
+							</a>
+							<div class="product__item-price-outer">
+								<div class="product__item-discount-price">
+									<del>400 Tk.</del>
+								</div>
+								<div class="product__item-regular-price">
+									<span>300 Tk.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product__item-outer">
+						<div class="product__item-image-outer">
+							<a href="details.html" class="product__item-image-inner">
+								<img src="{{asset('/frontend/images/product.png')}}" alt="Product Image" />
+							</a>
+							<div class="product__item-add-cart-btn-outer">
+								<a href="details.html" class="product__item-add-cart-btn-inner">
+									Add to Cart
+								</a>
+							</div>
+							<div class="product__type-badge-outer">
+								<span class="product__type-badge-inner">
+									Regular
+								</span>
+							</div>
+						</div>
+						<div class="product__item-info-outer">
+							<a href="#" class="product__item-name">
+								Test Product
+							</a>
+							<div class="product__item-price-outer">
+								<div class="product__item-discount-price">
+									<del>400 Tk.</del>
+								</div>
+								<div class="product__item-regular-price">
+									<span>300 Tk.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product__item-outer">
+						<div class="product__item-image-outer">
+							<a href="details.html" class="product__item-image-inner">
+								<img src="{{asset('/frontend/images/product.png')}}" alt="Product Image" />
+							</a>
+							<div class="product__item-add-cart-btn-outer">
+								<a href="details.html" class="product__item-add-cart-btn-inner">
+									Add to Cart
+								</a>
+							</div>
+							<div class="product__type-badge-outer">
+								<span class="product__type-badge-inner">
+									Regular
+								</span>
+							</div>
+						</div>
+						<div class="product__item-info-outer">
+							<a href="#" class="product__item-name">
+								Test Product
+							</a>
+							<div class="product__item-price-outer">
+								<div class="product__item-discount-price">
+									<del>400 Tk.</del>
+								</div>
+								<div class="product__item-regular-price">
+									<span>300 Tk.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- /Popular Product -->
+		<!-- Popular Product -->
+		<section class="product-section">
+			<div class="container">
+				<div class="section-title-outer">
+					<h1 class="title">
+						Discount Products
+					</h1>
+					<a href="type-products.html" class="product-view-all-btn">
+						View All
+					</a>
+				</div>
+				<div class="product-items-wrapper">
+					<div class="product__item-outer">
+						<div class="product__item-image-outer">
+							<a href="details.html" class="product__item-image-inner">
+								<img src="{{asset('/frontend/images/product1.jpg')}}" alt="Product Image" />
+							</a>
+							<div class="product__item-add-cart-btn-outer">
+								<a href="details.html" class="product__item-add-cart-btn-inner">
+									Add to Cart
+								</a>
+							</div>
+							<div class="product__type-badge-outer">
+								<span class="product__type-badge-inner">
+									Discount
+								</span>
+							</div>
+						</div>
+						<div class="product__item-info-outer">
+							<a href="#" class="product__item-name">
+								Test Product
+							</a>
+							<div class="product__item-price-outer">
+								<div class="product__item-discount-price">
+									<del>400 Tk.</del>
+								</div>
+								<div class="product__item-regular-price">
+									<span>300 Tk.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product__item-outer">
+						<div class="product__item-image-outer">
+							<a href="details.html" class="product__item-image-inner">
+								<img src="{{asset('/frontend/images/product.png')}}" alt="Product Image" />
+							</a>
+							<div class="product__item-add-cart-btn-outer">
+								<a href="details.html" class="product__item-add-cart-btn-inner">
+									Add to Cart
+								</a>
+							</div>
+							<div class="product__type-badge-outer">
+								<span class="product__type-badge-inner">
+									Discount
+								</span>
+							</div>
+						</div>
+						<div class="product__item-info-outer">
+							<a href="#" class="product__item-name">
+								Test Product
+							</a>
+							<div class="product__item-price-outer">
+								<div class="product__item-discount-price">
+									<del>400 Tk.</del>
+								</div>
+								<div class="product__item-regular-price">
+									<span>300 Tk.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="product__item-outer">
+						<div class="product__item-image-outer">
+							<a href="details.html" class="product__item-image-inner">
+								<img src="{{asset('/frontend/images/product.png')}}" alt="Product Image" />
+							</a>
+							<div class="product__item-add-cart-btn-outer">
+								<a href="details.html" class="product__item-add-cart-btn-inner">
+									Add to Cart
+								</a>
+							</div>
+							<div class="product__type-badge-outer">
+								<span class="product__type-badge-inner">
+									Discount
+								</span>
+							</div>
+						</div>
+						<div class="product__item-info-outer">
+							<a href="#" class="product__item-name">
+								Test Product
+							</a>
+							<div class="product__item-price-outer">
+								<div class="product__item-discount-price">
+									<del>400 Tk.</del>
+								</div>
+								<div class="product__item-regular-price">
+									<span>300 Tk.</span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- /Popular Product -->
+	</main>
+	@include('frontend.include.footer')
+    @include('frontend.include.script')
 </body>
 </html>
