@@ -15,4 +15,10 @@ class FrontendController extends Controller
     public function return(){
         return view('frontend.return-process');
     }
+    public function details(){
+        return view('frontend.details');
+    }
+    public function typeproducts(){
+        return view('frontend.typeproducts');
+    }
 }
