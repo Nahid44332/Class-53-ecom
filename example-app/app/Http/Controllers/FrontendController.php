@@ -18,7 +18,20 @@ class FrontendController extends Controller
     public function details(){
         return view('frontend.details');
     }
-    public function typeproducts(){
-        return view('frontend.typeproducts');
+    public function typeproducts($type){
+        return view('frontend.typeproducts', compact('type'));
+    }
+    public function viewcart(){
+        return view('frontend.view-products');
+    }
+    public function checkout(){
+        return view('frontend.checkout');
+    }
+    public function privacy(){
+        return view('frontend.privacy-policy');
+    }
+    // policy
+    public function terms(){
+        return view('frontend.terms-Conditions');
     }
 }

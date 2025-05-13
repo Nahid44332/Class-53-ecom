@@ -9,7 +9,7 @@
                         <div class="product-page-header-wrapper">
                             <div class="left-side-box">
                                 <h4 class="title">
-                                    Hot Products
+                                    {{ucfirst($type)}} Products
                                 </h4>
                             </div>
                             <div class="right-side-box">

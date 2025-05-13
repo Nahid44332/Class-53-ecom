@@ -1,7 +1,7 @@
 <footer class="footer-section">
     <div class="footer__top-wrapper">
         <div class="container">
-            <a href="index.html" class="footer__brand-logo-outer">
+            <a href="{{'/'}}" class="footer__brand-logo-outer">
                 <img src="{{asset('/frontend/images/logo.png')}}" class="footer__brand-logo-inner" />
             </a>
         </div>
@@ -16,12 +16,12 @@
                         </h4>
                         <ul class="footer__list">
                             <li class="footer__list-item">
-                                <a href="privacy-policy.html" class="footer__list-item-link">
+                                <a href="{{'/privacy-policy'}}" class="footer__list-item-link">
                                     Privacy Policy
                                 </a>
                             </li>
                             <li class="footer__list-item">
-                                <a href="#" class="footer__list-item-link">
+                                <a href="{{'/terms-Conditions'}}" class="footer__list-item-link">
                                     Terms & Conditions
                                 </a>
                             </li>
