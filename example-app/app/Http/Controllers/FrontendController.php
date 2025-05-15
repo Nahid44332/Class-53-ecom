@@ -27,11 +27,26 @@ class FrontendController extends Controller
     public function checkout(){
         return view('frontend.checkout');
     }
+    // Policy
     public function privacy(){
         return view('frontend.privacy-policy');
     }
-    // policy
     public function terms(){
         return view('frontend.terms-Conditions');
+    }
+    public function refundPolicy(){
+        return view('frontend.refund-Policy');
+    }
+    public function paymentPolicy(){
+        return view('frontend.payment-Policy');
+    }
+    public function aboutUs(){
+        return view('frontend.about-us');
+    }
+    public function contactUs(){
+        return view('frontend.contact-us');
+    }
+    public function testCategory(){
+        return view('frontend.test-category');
     }
 }

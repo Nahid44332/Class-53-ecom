@@ -26,12 +26,12 @@
                                 </a>
                             </li>
                             <li class="footer__list-item">
-                                <a href="#" class="footer__list-item-link">
+                                <a href="{{'/refund-Policy'}}" class="footer__list-item-link">
                                     Refund Policy
                                 </a>
                             </li>
                             <li class="footer__list-item">
-                                <a href="#" class="footer__list-item-link">
+                                <a href="{{'/payment-Policy'}}" class="footer__list-item-link">
                                     Payment Policy
                                 </a>
                             </li>
@@ -78,12 +78,12 @@
                         </h4>
                         <ul class="footer__list">
                             <li class="footer__list-item">
-                                <a href="#" class="footer__list-item-link">
+                                <a href="{{url('/about-us')}}" class="footer__list-item-link">
                                     About Us
                                 </a>
                             </li>
                             <li class="footer__list-item">
-                                <a href="#" class="footer__list-item-link">
+                                <a href="{{url('/contact-us')}}" class="footer__list-item-link">
                                     Contact Us
                                 </a>
                             </li>

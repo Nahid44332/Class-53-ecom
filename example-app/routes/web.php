@@ -18,3 +18,13 @@ Route::get('/checkout' , [FrontendController::class ,'checkout']);
 // policy
 Route::get('/privacy-policy' , [FrontendController::class ,'privacy']);
 Route::get('/terms-Conditions' , [FrontendController::class ,'terms']);
+Route::get('/refund-Policy' , [FrontendController::class ,'refundPolicy']);
+Route::get('/payment-Policy' , [FrontendController::class ,'paymentPolicy']);
+Route::get('/about-us' , [FrontendController::class ,'aboutUs']);
+Route::get('/contact-us' , [FrontendController::class ,'contactUs']);
+
+// Catagoury
+Route::get('/test-category' , [FrontendController::class ,'testCategory']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
