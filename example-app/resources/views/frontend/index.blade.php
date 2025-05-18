@@ -7,7 +7,7 @@
 					<div class="home__category-outer">
 						<ul class="header__category-list">
 							<li class="header__category-list-item item-has-submenu">
-								<a href="category-product.html" class="header__category-list-item-link">
+								<a href="{{url('/test-category')}}" class="header__category-list-item-link">
 									<img src="{{asset('/frontend/images/product.png')}}" alt="category">
 									Test Category
 								</a>
@@ -45,7 +45,7 @@
 						<h6 class="categoris-name">
 							Test Category
 						</h6>
-						<span class="items-number">2 items</span>
+						<span class="items-number">1 items</span>
 					</a>
 				</div>
 			</div>
