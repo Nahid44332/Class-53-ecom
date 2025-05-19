@@ -29,6 +29,7 @@ Route::get('/contact-us' , [FrontendController::class ,'contactUs']);
 Route::get('/test-category' , [FrontendController::class ,'testCategory']);
 // admin site
 Route::get('/admin/login' , [adminauthcontroller::class ,'adminlogin']);
+Route::get('/admin/logout' , [adminauthcontroller::class ,'adminlogout']);
 
 Auth::routes();
 
