@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\backend\adminauthcontroller;
 use App\Http\Controllers\backend\AdminController;
+use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\FrontendController;
+use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 
 // Route::get('/', function () {
@@ -32,5 +34,7 @@ Route::get('/admin/login' , [adminauthcontroller::class ,'adminlogin']);
 Route::get('/admin/logout' , [adminauthcontroller::class ,'adminlogout']);
 
 Auth::routes();
-
 Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard']);
+// Category Routes
+Route::get('/admin/category/create', [CategoryController::class, 'categoryCreate']);
+Route::post('/admin/category/store', [CategoryController::class, 'categoryStore']);

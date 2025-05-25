@@ -15,7 +15,7 @@
     @include("backend.include.sidebar")
       <!--begin::App Main-->
       <main class="app-main">
-       @yield('content');
+       @yield('content')
       </main>
       <!--end::App Main-->
     @include('backend.include.footer')
