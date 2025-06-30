@@ -84,7 +84,7 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{url('/admin/product/list')}}" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>List</p>
                     </a>

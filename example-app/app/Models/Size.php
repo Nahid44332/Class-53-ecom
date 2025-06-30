@@ -9,4 +9,9 @@ class Size extends Model
 {
     use HasFactory;
     protected $guarded =[];
+
+    public function Product()
+    {
+        return $this->hasMany(Product::class, 'product_id', 'id');
+    }
 }
