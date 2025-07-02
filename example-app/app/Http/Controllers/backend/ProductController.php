@@ -93,11 +93,52 @@ class ProductController extends Controller
             }
         }
 
-        return redirect()->back();
+        return redirect('/admin/product/list');
     }
     public function ProductList()
     {
         $products = Product::with('Category', 'SubCategory')->get();
         return view('backend.product.list', compact('products'));
+    }
+    public function ProductDelete($id)
+    {
+        $product = Product::find($id);
+
+         if($product->image && file_exists('backend/images/product/'.$product->image)){
+            unlink('backend/images/product/'.$product->image);
+        }
+
+        // Color Delete...
+        $colors = Color::where('product_id',  $product->id)->get(); 
+        foreach($colors as $color){
+            $color->delete();
+        }
+
+        //Size Delete...
+        $sizes = Size::where('product_id', $product->id)->get();
+        foreach($sizes as $size){
+            $size->delete();
+        }
+
+        //GalleryImage Delete...
+        $galleryimages = GalleryImage::where('product_id',$product->id)->get();
+        foreach($galleryimages as $singleImage){
+
+             if($singleImage->image && file_exists('backend/images/galleryimage/'.$singleImage->image)){
+                unlink('backend/images/galleryimage/'.$singleImage->image);
+        }
+            $singleImage->delete();
+        }
+
+        $product->delete();
+        return redirect()->back();
+    }
+
+    public function ProductEdit($id)
+    {
+        $product = Product::where('id', $id)->with('color','size','GalleryImage')->first();
+        $categories = Category::all();
+        $subCategories = SubCategory::all();
+       return view('backend.product.edit', compact('product', 'categories', 'subCategories'));
     }
 }

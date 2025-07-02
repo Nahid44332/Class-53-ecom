@@ -30,7 +30,7 @@
               <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end">
                 <!--begin::Menu Footer-->
                 <li class="user-footer">
-                  <a href="#" class="btn btn-default btn-flat">Credentials</a>
+                  <a href="#" class="btn btn-default btn-float">Credentials</a>
                   <a href="{{url('/admin/logout')}}" class="btn btn-default btn-flat float-end">Sign out</a>
                 </li>
                 <!--end::Menu Footer-->

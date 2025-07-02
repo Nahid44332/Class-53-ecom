@@ -30,7 +30,7 @@ class Product extends Model
         return $this->belongsTo(Size::class, 'product_id', 'id');
     }
 
-    public function GalleryImage()
+    public function galleryImage()
     {
         return $this->belongsTo(GalleryImage::class, 'product_id', 'id');
     }
