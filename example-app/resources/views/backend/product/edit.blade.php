@@ -156,8 +156,11 @@
                                         <input type="file" class="form-control" accept="image/*" name="gallery_image[]" id="gallery_image" multiple/>
                                         <label class="input-group-text" for="gallery_image">Upload Gallery Image</label>
                                         @foreach ($product->galleryImage as $singleImage)
-                                            <img src="{{asset('backend/images/galleryimage/'.$singleImage->image)}}" height="100" width="100">
-                                            <a href="{{url('/admin/product/galleryimage/delete/'.$singleImage->id)}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+                                            <img src="{{asset('backend/images/galleryimage/'.$singleImage->image)}}" class="mt-2" height="100" width="100">
+                                            <div>
+                                                <a href="{{url('/admin/product/galleryimage/delete/'.$singleImage->id)}}" class="btn btn-danger mt-2"><i class="fas fa-trash-alt"></i></a>
+                                                <a href="{{url('/admin/product/galleryimage/edit/'.$singleImage->id)}}" class="btn btn-info mt-2"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            </div>
                                         @endforeach
                                     </div>
                                 </div>
