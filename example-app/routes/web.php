@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/' , [FrontendController::class ,'index']);
 Route::get('/shop' , [FrontendController::class ,'shop']);
 Route::get('/return-process' , [FrontendController::class ,'return']);
-Route::get('/details' , [FrontendController::class ,'details']);
+Route::get('/product-details/{slug}' , [FrontendController::class ,'productdetails']);
 Route::get('/type-products/{type}' , [FrontendController::class ,'typeproducts']);
 Route::get('/view-products' , [FrontendController::class ,'viewcart']);
 Route::get('/checkout' , [FrontendController::class ,'checkout']);

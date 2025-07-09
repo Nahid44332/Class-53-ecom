@@ -6,19 +6,23 @@
 				<div class="home__slider-sec-wrap">
 					<div class="home__category-outer">
 						<ul class="header__category-list">
+						@foreach ($categories as $category)
 							<li class="header__category-list-item item-has-submenu">
 								<a href="{{url('/test-category')}}" class="header__category-list-item-link">
-									<img src="{{asset('/frontend/images/product.png')}}" alt="category">
-									Test Category
+									<img src="{{asset('backend/images/category/'.$category->image)}}" alt="category">
+									{{$category->name}}
 								</a>
 								<ul class="header__nav-item-category-submenu">
-									<li class="header__category-submenu-item">
-										<a href="sub-category-product.html" class="header__category-submenu-item-link">
-											Test Subcategory
-										</a>
-									</li>
+									@foreach ($category->subcategory as $subCategory)
+										<li class="header__category-submenu-item">
+											<a href="sub-category-product.html" class="header__category-submenu-item-link">
+												{{$subCategory->name}}
+											</a>
+										</li>
+									@endforeach
 								</ul>
 							</li>
+						@endforeach
 						</ul>
 					</div>
 					<div class="home__slider-items-wrapper">
@@ -42,7 +46,7 @@
 				<div class="categoris-items-wrapper owl-carousel">
 					@foreach ($categories as $category)
 						<a href="#" class="categoris-item">
-						<img src="{{asset('backend/images/category/'.$0category->image)}}" alt="category" />
+						<img src="{{asset('backend/images/category/'.$category->image)}}" alt="category" />
 						<h6 class="categoris-name">
 							{{$category->name}}
 						</h6>
@@ -91,11 +95,11 @@
 					@foreach ( $hotproducts as $product)
 						<div class="product__item-outer">
 						<div class="product__item-image-outer">
-							<a href="{{'/details'}}" class="product__item-image-inner">
+							<a href="{{'product-details/'.$product->slug}}" class="product__item-image-inner">
 								<img src="{{asset('backend/images/product/'.$product->image)}}" alt="Product Image" />
 							</a>
 							<div class="product__item-add-cart-btn-outer">
-								<a href="{{'/details'}}" class="product__item-add-cart-btn-inner">
+								<a href="#" class="product__item-add-cart-btn-inner">
 									Add to Cart
 								</a>
 							</div>
@@ -139,11 +143,11 @@
 					@foreach ($newproducts as $product)
 						<div class="product__item-outer">
 						<div class="product__item-image-outer">
-							<a href="{{'/details'}}" class="product__item-image-inner">
+							<a href="{{'product-details/'.$product->slug}}" class="product__item-image-inner">
 								<img src="{{asset('backend/images/product/'.$product->image)}}" alt="Product Image" />
 							</a>
 							<div class="product__item-add-cart-btn-outer">
-								<a href="{{'/details'}}" class="product__item-add-cart-btn-inner">
+								<a href="#" class="product__item-add-cart-btn-inner">
 									Add to Cart
 								</a>
 							</div>
@@ -187,11 +191,11 @@
 					@foreach ($regularproducts as $product)
 						<div class="product__item-outer">
 						<div class="product__item-image-outer">
-							<a href="{{'/details'}}" class="product__item-image-inner">
+							<a href="{{'product-details/'.$product->slug}}" class="product__item-image-inner">
 								<img src="{{asset('backend/images/product/'.$product->image)}}" alt="Product Image" />
 							</a>
 							<div class="product__item-add-cart-btn-outer">
-								<a href="{{'/details'}}" class="product__item-add-cart-btn-inner">
+								<a href="#" class="product__item-add-cart-btn-inner">
 									Add to Cart
 								</a>
 							</div>
@@ -235,11 +239,11 @@
 					@foreach ($discountproducts as $product)
 						<div class="product__item-outer">
 						<div class="product__item-image-outer">
-							<a href="{{'/details'}}" class="product__item-image-inner">
+							<a href="{{'product-details/'.$product->slug}}" class="product__item-image-inner">
 								<img src="{{asset('backend/images/product/'.$product->image)}}" alt="Product Image" />
 							</a>
 							<div class="product__item-add-cart-btn-outer">
-								<a href="{{'/details'}}" class="product__item-add-cart-btn-inner">
+								<a href="#" class="product__item-add-cart-btn-inner">
 									Add to Cart
 								</a>
 							</div>
