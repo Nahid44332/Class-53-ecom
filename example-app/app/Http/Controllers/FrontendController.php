@@ -2,12 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
 {
     public function index(){
-        return view('frontend.index');
+        $categories = Category::orderBy('name', 'asc')->get();
+        $hotproducts = Product::where('product_type', 'hot')->orderby('id', 'desc')->get();
+        $newproducts = Product::where('product_type', 'new')->orderby('id', 'desc')->get();
+        $regularproducts = Product::where('product_type', 'regular')->orderby('id', 'desc')->get();
+        $discountproducts = Product::where('product_type', 'discount')->orderby('id', 'desc')->get();
+        return view('frontend.index', compact('hotproducts', 'newproducts', 'regularproducts', 'discountproducts', 'categories'));
     }
     public function shop(){
         return view('frontend.shop');
