@@ -13,5 +13,6 @@
 	</main>
 	@include('frontend.include.footer')
     @include('frontend.include.script')
+	@stack('script')
 </body>
 </html>

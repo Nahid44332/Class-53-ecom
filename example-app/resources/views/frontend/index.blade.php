@@ -105,7 +105,7 @@
 							</div>
 							<div class="product__type-badge-outer">
 								<span class="product__type-badge-inner">
-									{{$product->product_type}}
+									{{ucfirst($product->product_type)}}
 								</span>
 							</div>
 						</div>
@@ -153,7 +153,7 @@
 							</div>
 							<div class="product__type-badge-outer">
 								<span class="product__type-badge-inner">
-									{{$product->product_type}}
+									{{ucfirst($product->product_type)}}
 								</span>
 							</div>
 						</div>
@@ -201,7 +201,7 @@
 							</div>
 							<div class="product__type-badge-outer">
 								<span class="product__type-badge-inner">
-									{{$product->product_type}}
+									{{ucfirst($product->product_type)}}
 								</span>
 							</div>
 						</div>
@@ -249,7 +249,7 @@
 							</div>
 							<div class="product__type-badge-outer">
 								<span class="product__type-badge-inner">
-									{{$product->product_type}}
+									{{ucfirst($product->product_type)}}
 								</span>
 							</div>
 						</div>
