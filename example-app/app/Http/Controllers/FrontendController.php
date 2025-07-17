@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -27,6 +28,97 @@ class FrontendController extends Controller
         $product = Product::where('slug', $slug)->with('color', 'size', 'galleryImage')->first();
         $categories = Category::orderby('name', 'asc')->get();
         return view('frontend.details', compact('product', 'categories'));
+    }
+    public function addToCardDetails(Request $request, $product_id)
+    {
+        $cartProduct = Cart::where('product_id', $product_id)->where('ip_address', $request->ip())->first();
+        $product = Product::find($product_id);
+
+        if($cartProduct == Null){
+            $cart = new Cart();
+
+            $cart->ip_address = $request->ip();
+            $cart->product_id = $product->id;
+            $cart->qty = $request->qty;
+            $cart->color = $request->color;
+            $cart->size = $request->size;
+
+            if($product->discount_price == Null){
+                $cart->price = $product->regular_price;
+            }
+            if($product->discount_price != Null){
+                $cart->price = $product->discount_price;
+            }
+
+            $cart->save();
+
+            if($request->action == "addToCart"){
+                return redirect()->back();
+            }
+            if($request->action == "buyNow"){
+                return redirect('/checkout');
+            }
+        }
+
+        elseif($cartProduct != Null){
+            $cartProduct->qty = $request->qty + $cartProduct->qty;
+            $cartProduct->color = $request->color;
+            $cartProduct->size = $request->size;
+
+            if($product->discount_price == Null){
+                $cartProduct->price = $product->regular_price;
+            }
+            if($product->discount_price != Null){
+                $cartProduct->price = $product->discount_price;
+            }
+
+            $cartProduct->save();
+
+             if($request->action == "addToCart"){
+                return redirect()->back();
+            }
+            if($request->action == "buyNow"){
+                return redirect('/checkout');
+            }
+        }
+    }
+
+    public function addToCard(Request $request, $product_id)
+    {
+        $cartProduct = Cart::where('product_id', $product_id)->where('ip_address', $request->ip())->first();
+        $product = Product::find($product_id);
+
+          if($cartProduct == Null){
+            $cart = new Cart();
+
+            $cart->ip_address = $request->ip();
+            $cart->product_id = $product->id;
+            $cart->qty = 1;
+
+            if($product->discount_price == Null){
+                $cart->price = $product->regular_price;
+            }
+            if($product->discount_price != Null){
+                $cart->price = $product->discount_price;
+            }
+
+            $cart->save();
+            return redirect()->back();
+        }
+
+          elseif($cartProduct != Null){
+            $cartProduct->qty = 1 + $cartProduct->qty;
+
+            if($product->discount_price == Null){
+                $cartProduct->price = $product->regular_price;
+            }
+            if($product->discount_price != Null){
+                $cartProduct->price = $product->discount_price;
+            }
+
+            $cartProduct->save();
+            return redirect()->back();
+        }
     }
     public function typeproducts($type){
         return view('frontend.typeproducts', compact('type'));
@@ -59,4 +151,5 @@ class FrontendController extends Controller
     public function testCategory(){
         return view('frontend.test-category');
     }
+
 }

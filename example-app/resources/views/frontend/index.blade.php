@@ -99,7 +99,7 @@
 								<img src="{{asset('backend/images/product/'.$product->image)}}" alt="Product Image" />
 							</a>
 							<div class="product__item-add-cart-btn-outer">
-								<a href="#" class="product__item-add-cart-btn-inner">
+								<a href="{{url('add-to-card/'.$product->id)}}" class="product__item-add-cart-btn-inner">
 									Add to Cart
 								</a>
 							</div>
@@ -147,7 +147,7 @@
 								<img src="{{asset('backend/images/product/'.$product->image)}}" alt="Product Image" />
 							</a>
 							<div class="product__item-add-cart-btn-outer">
-								<a href="#" class="product__item-add-cart-btn-inner">
+								<a href="{{url('add-to-card/'.$product->id)}}" class="product__item-add-cart-btn-inner">
 									Add to Cart
 								</a>
 							</div>
@@ -195,7 +195,7 @@
 								<img src="{{asset('backend/images/product/'.$product->image)}}" alt="Product Image" />
 							</a>
 							<div class="product__item-add-cart-btn-outer">
-								<a href="#" class="product__item-add-cart-btn-inner">
+								<a href="{{url('add-to-card/'.$product->id)}}" class="product__item-add-cart-btn-inner">
 									Add to Cart
 								</a>
 							</div>
@@ -243,7 +243,7 @@
 								<img src="{{asset('backend/images/product/'.$product->image)}}" alt="Product Image" />
 							</a>
 							<div class="product__item-add-cart-btn-outer">
-								<a href="#" class="product__item-add-cart-btn-inner">
+								<a href="{{url('add-to-card/'.$product->id)}}" class="product__item-add-cart-btn-inner">
 									Add to Cart
 								</a>
 							</div>
