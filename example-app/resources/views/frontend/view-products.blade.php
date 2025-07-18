@@ -18,27 +18,32 @@
                                 <th>Total</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody>       
+                           @foreach ($cartitem as $item)
+                            @php
+                                $subTotal = $item->price * $item->qty;
+                            @endphp
                             <tr>
                                 <td class="cart-product-image-outer">
-                                    <img src="/frontend/images/product.png" height="70" width="120">
+                                    <img src={{asset('backend/images/product/'.$item->product->image)}} height="90" width="90">
                                 </td>
                                 <td class="cart-product-name-outer">
-                                    Test Product
+                                    {{$item->product->name}}
                                 </td>
                                 <td class="cart-product-price-outer">
-                                    ৳ 300
+                                    ৳ {{$item->price}}
                                 </td>
                                 <td class="qty-increment-decrement-outer">
-                                    <input type="number" name="qty" readonly value="300" min="1" />
+                                    <input type="number" name="qty" readonly value="{{$item->qty}}" min="1" />
                                 </td>
                                 <td>
                                     <a href="#" class="remove-product">Remove</a>
                                 </td>
                                 <td class="cart-product-total-outer">
-                                    ৳ 300
+                                    ৳ {{$subTotal}}
                                 </td>
                             </tr>
+                           @endforeach
                         </tbody>
                     </table>
                 </div>

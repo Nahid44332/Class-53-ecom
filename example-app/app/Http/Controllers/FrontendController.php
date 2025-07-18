@@ -124,7 +124,8 @@ class FrontendController extends Controller
         return view('frontend.typeproducts', compact('type'));
     }
     public function viewcart(){
-        return view('frontend.view-products');
+        $cartitem = Cart::where('ip_address', request()->ip())->get();
+        return view('frontend.view-products', compact('cartitem'));
     }
     public function checkout(){
         return view('frontend.checkout');
