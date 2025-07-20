@@ -22,8 +22,9 @@ Route::get('/view-products' , [FrontendController::class ,'viewcart']);
 Route::get('/checkout' , [FrontendController::class ,'checkout']);
 
 // Add to Card Route...
-Route::post('/product-details/add-to-card/{product_id}' , [FrontendController::class ,'addToCardDetails']);
-Route::get('/add-to-card/{product_id}' , [FrontendController::class ,'addToCard']);
+Route::post('/product-details/add-to-card/{product_id}' , [FrontendController::class ,'addToCartDetails']);
+Route::get('/add-to-card/{product_id}' , [FrontendController::class ,'addToCart']);
+Route::get('/cart/delete/{id}', [FrontendController::class, 'deleteCartItem']);
 
 // policy
 Route::get('/privacy-policy' , [FrontendController::class ,'privacy']);

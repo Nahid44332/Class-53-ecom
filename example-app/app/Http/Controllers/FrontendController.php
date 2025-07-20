@@ -29,7 +29,7 @@ class FrontendController extends Controller
         $categories = Category::orderby('name', 'asc')->get();
         return view('frontend.details', compact('product', 'categories'));
     }
-    public function addToCardDetails(Request $request, $product_id)
+    public function addToCartDetails(Request $request, $product_id)
     {
         $cartProduct = Cart::where('product_id', $product_id)->where('ip_address', $request->ip())->first();
         $product = Product::find($product_id);
@@ -83,7 +83,7 @@ class FrontendController extends Controller
         }
     }
 
-    public function addToCard(Request $request, $product_id)
+    public function addToCart(Request $request, $product_id)
     {
         $cartProduct = Cart::where('product_id', $product_id)->where('ip_address', $request->ip())->first();
         $product = Product::find($product_id);
@@ -119,6 +119,14 @@ class FrontendController extends Controller
             $cartProduct->save();
             return redirect()->back();
         }
+    }
+    public function deleteCartItem(Request $request, $id)
+    {
+        $cartItem = Cart::where('id', $id)->where('ip_address', request()->ip())->first();
+
+        $cartItem->delete();
+        return redirect()->back();
+
     }
     public function typeproducts($type){
         return view('frontend.typeproducts', compact('type'));

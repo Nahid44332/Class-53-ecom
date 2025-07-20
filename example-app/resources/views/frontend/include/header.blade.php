@@ -47,7 +47,7 @@
                                     </span>
                                 </div>
                                 <div class="cart-item-delete">
-                                    <a href="#" class="delete-btn">
+                                    <a href="{{url('/cart/delete/'.$cart->id)}}" class="delete-btn">
                                         <i class="fas fa-trash-alt"></i>
                                     </a>
                                 </div>
