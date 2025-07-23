@@ -126,7 +126,6 @@ class FrontendController extends Controller
 
         $cartItem->delete();
         return redirect()->back();
-
     }
     public function typeproducts($type){
         return view('frontend.typeproducts', compact('type'));

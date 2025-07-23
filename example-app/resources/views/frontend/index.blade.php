@@ -15,7 +15,7 @@
 								<ul class="header__nav-item-category-submenu">
 									@foreach ($category->subcategory as $subCategory)
 										<li class="header__category-submenu-item">
-											<a href="sub-category-product.html" class="header__category-submenu-item-link">
+											<a href="#" class="header__category-submenu-item-link">
 												{{$subCategory->name}}
 											</a>
 										</li>
