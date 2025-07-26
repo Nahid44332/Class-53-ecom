@@ -2,7 +2,8 @@
 @section('content')
 <section class="checkout-section">
             <div class="container">
-                <form action="" method="post" class="form-group billing-address-form" enctype="multipart/form-data">
+                <form action="{{url('/confirm-order')}}" method="post" class="form-group billing-address-form" enctype="multipart/form-data">
+                    @csrf
                     <div class="row">
                         <div class="col-lg-8 col-md-6">
                             <div class="checkout-wrapper">
@@ -10,10 +11,10 @@
                                     <h4 class="title">Billing / Shipping Details</h4>
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <input type="text" name="name" class="form-control" placeholder="Enter Full Name *"/>
+                                            <input type="text" name="name" class="form-control" placeholder="Enter Full Name"/>
                                         </div>
                                         <div class="col-md-6">
-                                            <input type="text" name="phone" class="form-control" placeholder="Phone *"/>
+                                            <input type="text" name="phone" class="form-control" placeholder="Phone *" required/>
                                         </div>
                                         <div class="col-md-12">
                                             <textarea rows="4" name="address" class="form-control" id="address"
@@ -30,20 +31,20 @@
                                         <div class="col-md-12 mt-3">
                                            @if ($totalprice >= 10000)
                                             <div style="background: lightgrey;padding: 10px;margin-bottom: 10px;">
-                                                <input type="radio" id="inside_dhaka" name="area" checked value="0" onclick=""/>
+                                                <input type="radio" id="inside_dhaka" name="charge" checked value="0" onclick=""/>
                                                 <label for="inside_dhaka"
                                                     style="font-size: 18px;font-weight: 600;color: #000;">Free Delivery (0
                                                     Tk.)</label>
                                             </div>
                                            @else
                                             <div style="background: lightgrey;padding: 10px;margin-bottom: 10px;">
-                                                <input type="radio" id="inside_dhaka" name="area" checked value="80" onclick="insideDhakaCharge()"/>
+                                                <input type="radio" id="inside_dhaka" name="charge" checked value="80" onclick="insideDhakaCharge()"/>
                                                 <label for="inside_dhaka"
                                                     style="font-size: 18px;font-weight: 600;color: #000;">Inside Dhaka (80
                                                     Tk.)</label>
                                             </div>
                                             <div style="background: lightgrey;padding: 10px;">
-                                                <input type="radio" id="outside_dhaka" name="area" value="150" onclick="outSideDhakaCharge()"/>
+                                                <input type="radio" id="outside_dhaka" name="charge" value="150" onclick="outSideDhakaCharge()"/>
                                                 <label for="outside_dhaka"
                                                     style="font-size: 18px;font-weight: 600;color: #000;">Outside Dhaka (150
                                                     Tk.)</label>
@@ -125,8 +126,10 @@
                                          <strong>Grand Total</strong>
                                          @if ($totalprice >= 10000)
                                              <strong id="grandTotal">৳ {{$totalprice+0}}</strong>
+                                             <input type="hidden" name="inputGrandTotal" id="inputGrandTotal" value="{{$totalprice+0}}">
                                         @else
                                             <strong id="grandTotal">৳ {{$totalprice+80}}</strong>
+                                            <input type="hidden" name="inputGrandTotal" id="inputGrandTotal" value="{{$totalprice+80}}">
                                          @endif
                                     </div>
                                 </div>
@@ -163,12 +166,14 @@
             let totalprice = parseFloat(document.getElementById('inputTotalPrice').value);
             let grandTotal = totalprice+80;
             document.getElementById('grandTotal').innerHTML = "৳"+grandTotal;
+            document.getElementById('inputGrandTotal').value = grandTotal;
         }
         function outSideDhakaCharge(){
             document.getElementById('deliveryCharge').innerHTML = "৳"+150;
             let totalprice = parseFloat(document.getElementById('inputTotalPrice').value);
             let grandTotal = totalprice+150;
             document.getElementById('grandTotal').innerHTML = "৳"+grandTotal;
+            document.getElementById('inputGrandTotal').value = grandTotal;
         }
     </script>
 @endpush

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('invoice_number');
             $table->string('name')->nullable();
             $table->string('phone');
+            $table->double('price');
             $table->longText('address')->nullable();
             $table->integer('charge')->default(80);
             $table->string('courier_name')->nullable();
