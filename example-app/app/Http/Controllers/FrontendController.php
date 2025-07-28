@@ -55,6 +55,7 @@ class FrontendController extends Controller
             $cart->save();
 
             if($request->action == "addToCart"){
+                
                 return redirect()->back();
             }
             if($request->action == "buyNow"){
@@ -75,8 +76,8 @@ class FrontendController extends Controller
             }
 
             $cartProduct->save();
-
              if($request->action == "addToCart"){
+                toastr()->success('Your Product Added Successfully.');
                 return redirect()->back();
             }
             if($request->action == "buyNow"){
@@ -105,6 +106,7 @@ class FrontendController extends Controller
             }
 
             $cart->save();
+             toastr()->success('Your Product Added Successfully.');
             return redirect()->back();
         }
 
@@ -119,6 +121,7 @@ class FrontendController extends Controller
             }
 
             $cartProduct->save();
+             toastr()->success('Your Product Added Successfully.');
             return redirect()->back();
         }
     }
@@ -127,6 +130,7 @@ class FrontendController extends Controller
         $cartItem = Cart::where('id', $id)->where('ip_address', request()->ip())->first();
 
         $cartItem->delete();
+        toastr()->success('Your Product Delete Successfully.');
         return redirect()->back();
     }
     public function typeproducts($type){
