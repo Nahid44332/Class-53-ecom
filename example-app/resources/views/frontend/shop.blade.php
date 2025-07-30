@@ -14,30 +14,14 @@
                             <i class="fas fa-angle-down"></i>
                         </div>
                         <form class="filter-items" id="collapseOne" action="" method="GET">                                    
+                          @foreach ($unicCategory as $category)
                             <div class="item-label">
                                 <label>
                                     <input type="checkbox" value="" id="" name="" class="checkbox" />
-                                    <span>Hot Products</span>
+                                    <span>{{$category->name}}</span>
                                 </label>
                             </div>
-                            <div class="item-label">
-                                <label>
-                                    <input type="checkbox" value="" id="" name="" class="checkbox" />
-                                    <span>Hot Products</span>
-                                </label>
-                            </div>
-                            <div class="item-label">
-                                <label>
-                                    <input type="checkbox" value="" id="" name="" class="checkbox" />
-                                    <span>Hot Products</span>
-                                </label>
-                            </div>
-                            <div class="item-label">
-                                <label>
-                                    <input type="checkbox" value="" id="" name="" class="checkbox" />
-                                    <span>Hot Products</span>
-                                </label>
-                            </div>
+                          @endforeach
                         </form>
                     </div>
                     <div class="filter-items-outer">
@@ -46,46 +30,16 @@
                             <i class="fas fa-angle-down"></i>
                         </div>
                         <form class="filter-items" id="collapseTwo" action="" method="GET">
+                            @foreach ($unicSubCategory as $subcategory)
                             <div class="item-label">
                                 <label>
                                     <input type="checkbox" value="" id="" name="" class="checkbox" />
                                     <span>
-                                        Test Subcategory
+                                        {{$subcategory->name}}
                                     </span>
                                 </label>
                             </div>
-                            <div class="item-label">
-                                <label>
-                                    <input type="checkbox" value="" id="" name="" class="checkbox" />
-                                    <span>
-                                        Test Subcategory
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="item-label">
-                                <label>
-                                    <input type="checkbox" value="" id="" name="" class="checkbox" />
-                                    <span>
-                                        Test Subcategory
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="item-label">
-                                <label>
-                                    <input type="checkbox" value="" id="" name="" class="checkbox" />
-                                    <span>
-                                        Test Subcategory
-                                    </span>
-                                </label>
-                            </div>
-                            <div class="item-label">
-                                <label>
-                                    <input type="checkbox" value="" id="" name="" class="checkbox" />
-                                    <span>
-                                        Test Subcategory
-                                    </span>
-                                </label>
-                            </div>
+                            @endforeach
                         </form>
                     </div>
                 </div>
@@ -102,15 +56,16 @@
                             <div class="right-side-box">
                                 <h4 class="product-qty">
                                     Total Products
-                                    <span class="number">10</span>
+                                    <span class="number">{{$productscount}}</span>
                                 </h4>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
+                   @foreach ($products as $product)
+                        <div class="col-lg-3 col-md-6 col-sm-6">
                         <div class="product__item-outer">
                             <div class="product__item-image-outer">
-                                <a href="#" class="product__item-image-inner">
+                                <a href="{{'product-details/'.$product->slug}}" class="product__item-image-inner">
                                     <img src="/frontend/images/product.png" alt="Product Image" />
                                 </a>
                                 <div class="product__item-add-cart-btn-outer">
@@ -139,6 +94,7 @@
                             </div>
                         </div>
                     </div>
+                   @endforeach
                 </div>
             </div>
         </div>

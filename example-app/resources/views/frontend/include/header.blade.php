@@ -81,19 +81,23 @@
                         </div>
                         <div class="header__category-items-outer">
                             <ul class="header__category-list">
-                                <li class="header__category-list-item item-has-submenu">
-                                    <a href="{{'/test-category'}}" class="header__category-list-item-link">
-                                        <img src="{{asset('/frontend/images/product.png')}}" alt="category">
-                                        Test Category
+                              @foreach ($unicCategory as $category)
+                                    <li class="header__category-list-item item-has-submenu">
+                                    <a href="{{url('category-products/'.$category->slug.'/'.$category->id)}}" class="header__category-list-item-link">
+                                        <img src="{{asset('backend/images/category/'.$category->image)}}" alt="category">
+                                        {{$category->name}}
                                     </a>
                                     <ul class="header__nav-item-category-submenu">
+                                    @foreach ($category->subcategory as $subCategory)
                                         <li class="header__category-submenu-item">
-                                            <a href="#" class="header__category-submenu-item-link">
-                                                Test Subcategory
+                                            <a href="{{url('subcategory-products/'.$subCategory->slug.'/'.$subCategory->id)}}" class="header__category-submenu-item-link">
+                                                {{$subCategory->name}}
                                             </a>
                                         </li>
+                                    @endforeach
                                     </ul>
                                 </li>
+                              @endforeach
                             </ul>
                         </div>
                     </div>

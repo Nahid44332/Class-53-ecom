@@ -8,14 +8,14 @@
 						<ul class="header__category-list">
 						@foreach ($categories as $category)
 							<li class="header__category-list-item item-has-submenu">
-								<a href="{{url('/test-category')}}" class="header__category-list-item-link">
+								<a href="{{url('category-products/'.$category->slug.'/'.$category->id)}}" class="header__category-list-item-link">
 									<img src="{{asset('backend/images/category/'.$category->image)}}" alt="category">
 									{{$category->name}}
 								</a>
 								<ul class="header__nav-item-category-submenu">
 									@foreach ($category->subcategory as $subCategory)
 										<li class="header__category-submenu-item">
-											<a href="#" class="header__category-submenu-item-link">
+											<a href="{{url('subcategory-products/'.$subCategory->slug.'/'.$subCategory->id)}}" class="header__category-submenu-item-link">
 												{{$subCategory->name}}
 											</a>
 										</li>
@@ -45,12 +45,12 @@
 				</div>
 				<div class="categoris-items-wrapper owl-carousel">
 					@foreach ($categories as $category)
-						<a href="#" class="categoris-item">
+						<a href="{{url('category-products/'.$category->slug.'/'.$category->id)}}" class="categoris-item">
 						<img src="{{asset('backend/images/category/'.$category->image)}}" alt="category" />
 						<h6 class="categoris-name">
 							{{$category->name}}
 						</h6>
-						<span class="items-number">1 items</span>
+						<span class="items-number">{{App\Models\Product::where('cat_id', $category->id)->count()}} items</span>
 					</a>
 					@endforeach
 				</div>
@@ -110,16 +110,22 @@
 							</div>
 						</div>
 						<div class="product__item-info-outer">
-							<a href="#" class="product__item-name">
+							<a href="{{'product-details/'.$product->slug}}" class="product__item-name">
 								{{$product->name}}
 							</a>
 							<div class="product__item-price-outer">
-								<div class="product__item-discount-price">
-									<del>{{$product->regular_price}} Tk.</del>
-								</div>
-								<div class="product__item-regular-price">
-									<span>{{$product->discount_price}} Tk.</span>
-								</div>
+								@if ($product->discount_price != null)
+                                    <div class="product__item-discount-price">
+                                        <del>{{ $product->regular_price }} Tk.</del>
+                                    </div>
+                                    <div class="product__item-regular-price">
+                                        <span>{{ $product->discount_price }} Tk.</span>
+                                    </div>
+                                @else
+                                    <div class="product__item-regular-price">
+                                        <span>{{ $product->regular_price }} Tk.</span>
+                                    </div>
+                                @endif
 							</div>
 						</div>
 					</div>
@@ -162,12 +168,18 @@
 								{{$product->name}}
 							</a>
 							<div class="product__item-price-outer">
-								<div class="product__item-discount-price">
-									<del>{{$product->regular_price}} Tk.</del>
-								</div>
-								<div class="product__item-regular-price">
-									<span>{{$product->discount_price}} Tk.</span>
-								</div>
+								@if ($product->discount_price != null)
+                                    <div class="product__item-discount-price">
+                                    	<del>{{ $product->regular_price }} Tk.</del>
+                                    </div>
+                                    <div class="product__item-regular-price">
+                                        <span>{{ $product->discount_price }} Tk.</span>
+                                    </div>
+                                @else
+                                    <div class="product__item-regular-price">
+                                        <span>{{ $product->regular_price }} Tk.</span>
+                                    </div>
+                                @endif
 							</div>
 						</div>
 					</div>
@@ -210,12 +222,18 @@
 								{{$product->name}}
 							</a>
 							<div class="product__item-price-outer">
-								<div class="product__item-discount-price">
-									<del>{{$product->regular_price}} Tk.</del>
-								</div>
-								<div class="product__item-regular-price">
-									<span>{{$product->discount_price}} Tk.</span>
-								</div>
+								@if ($product->discount_price != null)
+                                    <div class="product__item-discount-price">
+                                        <del>{{ $product->regular_price }} Tk.</del>
+                                    </div>
+                                    <div class="product__item-regular-price">
+                                        <span>{{ $product->discount_price }} Tk.</span>
+                                    </div>
+                                @else
+                                    <div class="product__item-regular-price">
+                                        <span>{{ $product->regular_price }} Tk.</span>
+                                    </div>
+                                @endif
 							</div>
 						</div>
 					</div>

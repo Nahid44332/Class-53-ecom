@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Order;
 use App\Models\OrderDetails;
 use App\Models\Product;
+use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -19,18 +20,40 @@ class FrontendController extends Controller
         $discountproducts = Product::where('product_type', 'discount')->orderby('id', 'desc')->get();
         return view('frontend.index', compact('hotproducts', 'newproducts', 'regularproducts', 'discountproducts', 'categories'));
     }
-    public function shop(){
-        return view('frontend.shop');
+
+    public function categoryProducts($slug, $id)
+    {
+        $category = Category::find($id);
+        $products = Product::where('cat_id', $id)->get();
+        $productscount = Product::where('cat_id', $id)->count();
+        return view('frontend.category-products', compact('products', 'productscount', 'category'));
     }
+
+    public function subCategoryProducts($slug, $id)
+    {
+        $subCategory = SubCategory::find($id);
+        $products = Product::where('sub_cat_id', $id)->get();
+        $productscount = Product::where('sub_cat_id', $id)->count();
+        return view('frontend.subcategory-products', compact('subCategory', 'products', 'productscount'));
+    }
+
+    public function shop(){
+        $products = Product::orderBy('id', 'desc')->get();
+        $productscount = Product::orderBy('id', 'desc')->count();
+        return view('frontend.shop', compact('products', 'productscount'));
+    }
+
     public function return(){
         return view('frontend.return-process');
     }
+
     public function productdetails($slug){
 
         $product = Product::where('slug', $slug)->with('color', 'size', 'galleryImage')->first();
         $categories = Category::orderby('name', 'asc')->get();
         return view('frontend.details', compact('product', 'categories'));
     }
+
     public function addToCartDetails(Request $request, $product_id)
     {
         $cartProduct = Cart::where('product_id', $product_id)->where('ip_address', $request->ip())->first();

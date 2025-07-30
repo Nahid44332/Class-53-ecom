@@ -30,15 +30,18 @@
                                     {{$product->name}}
                                 </h3>
                                 <div class="product-price">
-                                    @if ($product->discount_price != Null)
-                                        <span>{{$product->discount_price}} Tk.</span>
-
-                                    <span class="" style="color: #f74b81;">
-                                        <del>{{$product->regular_price}} Tk.</del>
-                                    </span>
-                                    @elseif ($product->discount_price == Null)
-                                    <span>{{$product->regular_price}} Tk.</span>
-                                    @endif
+                                   @if ($product->discount_price != null)
+                                    <div class="product__item-discount-price">
+                                        <del>{{ $product->regular_price }} Tk.</del>
+                                    </div>
+                                    <div class="product__item-regular-price">
+                                        <span>{{ $product->discount_price }} Tk.</span>
+                                    </div>
+                                @else
+                                    <div class="product__item-regular-price">
+                                        <span>{{ $product->regular_price }} Tk.</span>
+                                    </div>
+                                @endif
                                 </div>
                                 <form action="{{url('/product-details/add-to-card/'.$product->id)}}" method="POST">
                                     @csrf
