@@ -14,10 +14,10 @@ class FrontendController extends Controller
 {
     public function index(){
         $categories = Category::orderBy('name', 'asc')->with('subCategory')->get();
-        $hotproducts = Product::where('product_type', 'hot')->orderby('id', 'desc')->get();
-        $newproducts = Product::where('product_type', 'new')->orderby('id', 'desc')->get();
-        $regularproducts = Product::where('product_type', 'regular')->orderby('id', 'desc')->get();
-        $discountproducts = Product::where('product_type', 'discount')->orderby('id', 'desc')->get();
+        $hotproducts = Product::where('product_type', 'hot')->orderby('id', 'desc')->paginate(20);
+        $newproducts = Product::where('product_type', 'new')->orderby('id', 'desc')->paginate(20);
+        $regularproducts = Product::where('product_type', 'regular')->orderby('id', 'desc')->paginate(20);
+        $discountproducts = Product::where('product_type', 'discount')->orderby('id', 'desc')->paginate(20);
         return view('frontend.index', compact('hotproducts', 'newproducts', 'regularproducts', 'discountproducts', 'categories'));
     }
 
@@ -37,9 +37,18 @@ class FrontendController extends Controller
         return view('frontend.subcategory-products', compact('subCategory', 'products', 'productscount'));
     }
 
-    public function shop(){
-        $products = Product::orderBy('id', 'desc')->get();
-        $productscount = Product::orderBy('id', 'desc')->count();
+    public function shop(Request $request)
+    {
+        if(isset($request->cat_id)){
+            $products = Product::orderBy('id', 'desc')->where('cat_id', $request->cat_id)->paginate(20);
+        }
+        elseif(isset($request->sub_cat_id)){
+            $products = Product::orderBy('id', 'desc')->where('sub_cat_id', $request->sub_cat_id)->paginate(20);
+        }
+        else{
+            $products = Product::orderBy('id', 'desc')->paginate(20);
+        }
+        $productscount = $products->count();
         return view('frontend.shop', compact('products', 'productscount'));
     }
 
@@ -157,7 +166,9 @@ class FrontendController extends Controller
         return redirect()->back();
     }
     public function typeproducts($type){
-        return view('frontend.typeproducts', compact('type'));
+        $products = Product::where('product_type', $type)->get();
+        $productscount = Product::where('product_type', $type)->count();
+        return view('frontend.typeproducts', compact('type', 'products', 'productscount'));
     }
     public function viewcart(){
         $cartitem = Cart::where('ip_address', request()->ip())->get();
