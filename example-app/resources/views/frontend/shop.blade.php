@@ -18,7 +18,7 @@
                                 @foreach ($unicCategory as $category)
                                     <div class="item-label">
                                         <label>
-                                            <input type="checkbox" value="{{$category->id}}" id="cat_id" name="cat_id" class="checkbox"/>
+                                            <input type="checkbox" value="{{$category->id}}" id="cat_id" onclick="formSubmitCategory()" name="cat_id" class="checkbox"/>
                                             <span>{{$category->name}}</span>
                                         </label>
                                     </div>
@@ -35,7 +35,7 @@
                                 @foreach ($unicSubCategory as $subcategory)
                                     <div class="item-label">
                                         <label>
-                                            <input type="checkbox" value="{{$subcategory->id}}" id="sub_cat_id" name="sub_cat_id" class="checkbox"/>
+                                            <input type="checkbox" value="{{$subcategory->id}}" id="sub_cat_id" onclick="formSubmitSubCategory()" name="sub_cat_id" class="checkbox"/>
                                             <span>
                                                 {{ $subcategory->name }}
                                             </span>
@@ -111,3 +111,14 @@
         </div>
     </section>
 @endsection
+
+@push('script')
+    <script>
+        function formSubmitCategory(){
+            document.getElementById('collapseOne').submit();
+        }
+        function formSubmitSubCategory(){
+            document.getElementById('collapseTwo').submit();
+        }
+    </script>
+@endpush
