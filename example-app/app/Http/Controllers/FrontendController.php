@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Banner;
 use App\Models\Cart;
 use App\Models\Category;
 use App\Models\Order;
 use App\Models\OrderDetails;
+use App\Models\Policy;
 use App\Models\Product;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
@@ -14,11 +16,12 @@ class FrontendController extends Controller
 {
     public function index(){
         $categories = Category::orderBy('name', 'asc')->with('subCategory')->get();
+        $banners = Banner::get();
         $hotproducts = Product::where('product_type', 'hot')->orderby('id', 'desc')->paginate(20);
         $newproducts = Product::where('product_type', 'new')->orderby('id', 'desc')->paginate(20);
         $regularproducts = Product::where('product_type', 'regular')->orderby('id', 'desc')->paginate(20);
         $discountproducts = Product::where('product_type', 'discount')->orderby('id', 'desc')->paginate(20);
-        return view('frontend.index', compact('hotproducts', 'newproducts', 'regularproducts', 'discountproducts', 'categories'));
+        return view('frontend.index', compact('hotproducts', 'newproducts', 'regularproducts', 'discountproducts', 'categories', 'banners'));
     }
 
     public function categoryProducts($slug, $id)
@@ -228,26 +231,40 @@ class FrontendController extends Controller
         return view('frontend.thankyou', compact('invoiceid'));
     }
     // Policy
-    public function privacy(){
-        return view('frontend.privacy-policy');
+    public function privacy()
+    {
+        $privacyPolicy = Policy::select('privacy_policy')->first();
+        return view('frontend.privacy-policy', compact('privacyPolicy'));
     }
-    public function terms(){
-        return view('frontend.terms-Conditions');
+    public function terms()
+    {
+        $termsConndition = Policy::select('terms_conditions')->first();
+        return view('frontend.terms-Conditions', compact('termsConndition'));
     }
-    public function refundPolicy(){
-        return view('frontend.refund-Policy');
+    public function refundPolicy()
+    {
+        $refundpolicy = Policy::select('refund_policy')->first();
+        return view('frontend.refund-Policy', compact('refundpolicy'));
     }
-    public function paymentPolicy(){
-        return view('frontend.payment-Policy');
+    public function paymentPolicy()
+    {
+        $paymentPolicy = Policy::select('payment_policy')->first();
+        return view('frontend.payment-Policy', compact('paymentPolicy'));
     }
-    public function aboutUs(){
-        return view('frontend.about-us');
+    public function aboutUs()
+    {
+        $aboutus = Policy::select('about_us')->first();
+        return view('frontend.about-us', compact('aboutus'));
     }
-    public function contactUs(){
+    public function contactUs()
+    {
         return view('frontend.contact-us');
     }
-    public function testCategory(){
-        return view('frontend.test-category');
+    public function searchProduct(Request $request)
+    {
+        $searchParam = $request->search;
+        $products = Product::where('name', 'LIKE', '%'.$searchParam.'%')->get();
+        $productCount = $products->count();
+        return view('frontend.search-products', compact('products', 'searchParam', 'productCount'));
     }
-
 }

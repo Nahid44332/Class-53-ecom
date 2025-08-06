@@ -40,6 +40,9 @@ Route::get('/payment-Policy' , [FrontendController::class ,'paymentPolicy']);
 Route::get('/about-us' , [FrontendController::class ,'aboutUs']);
 Route::get('/contact-us' , [FrontendController::class ,'contactUs']);
 
+//productSearching...
+Route::get('/search-products' , [FrontendController::class ,'searchProduct']);
+
 // Catagoury
 Route::get('/test-category' , [FrontendController::class ,'testCategory']);
 // admin site
