@@ -29,7 +29,7 @@
                                         @endphp
                                          @endforeach
                                         <div class="col-md-12 mt-3">
-                                           @if ($totalprice >= 10000)
+                                           @if ($totalprice >= $sitesetting->free_shipping_amount)
                                             <div style="background: lightgrey;padding: 10px;margin-bottom: 10px;">
                                                 <input type="radio" id="inside_dhaka" name="charge" checked value="0" onclick=""/>
                                                 <label for="inside_dhaka"

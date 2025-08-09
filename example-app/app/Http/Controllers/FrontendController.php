@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Banner;
 use App\Models\Cart;
 use App\Models\Category;
+use App\Models\ContactUs;
 use App\Models\Order;
 use App\Models\OrderDetails;
 use App\Models\Policy;
@@ -56,7 +57,8 @@ class FrontendController extends Controller
     }
 
     public function return(){
-        return view('frontend.return-process');
+         $returnPolicy = Policy::select('return_policy')->first();
+        return view('frontend.return-process', compact('returnPolicy'));
     }
 
     public function productdetails($slug){
@@ -226,6 +228,7 @@ class FrontendController extends Controller
             return redirect('/');
         }
     }
+
     public function successOrder($invoiceid)
     {
         return view('frontend.thankyou', compact('invoiceid'));
@@ -236,29 +239,48 @@ class FrontendController extends Controller
         $privacyPolicy = Policy::select('privacy_policy')->first();
         return view('frontend.privacy-policy', compact('privacyPolicy'));
     }
+
     public function terms()
     {
         $termsConndition = Policy::select('terms_conditions')->first();
         return view('frontend.terms-Conditions', compact('termsConndition'));
     }
+
     public function refundPolicy()
     {
         $refundpolicy = Policy::select('refund_policy')->first();
         return view('frontend.refund-Policy', compact('refundpolicy'));
     }
+
     public function paymentPolicy()
     {
         $paymentPolicy = Policy::select('payment_policy')->first();
         return view('frontend.payment-Policy', compact('paymentPolicy'));
     }
+
     public function aboutUs()
     {
         $aboutus = Policy::select('about_us')->first();
         return view('frontend.about-us', compact('aboutus'));
     }
+
     public function contactUs()
     {
         return view('frontend.contact-us');
+    }
+
+    public function contactUsStore(Request $request)
+    {
+        $contactMessage = new ContactUs();
+
+        $contactMessage->name = $request->name;
+        $contactMessage->phone = $request->phone;
+        $contactMessage->email = $request->email;
+        $contactMessage->message = $request->message;
+
+        $contactMessage->save();
+        toastr()->success('Your Message Sent Successfully Done!');
+        return redirect()->back();
     }
     public function searchProduct(Request $request)
     {

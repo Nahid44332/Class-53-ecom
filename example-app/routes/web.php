@@ -4,6 +4,7 @@ use App\Http\Controllers\backend\adminauthcontroller;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\CategoryController;
 use App\Http\Controllers\backend\ProductController;
+use App\Http\Controllers\backend\SettingsController;
 use App\Http\Controllers\backend\SubCategoryController;
 use App\Http\Controllers\FrontendController;
 use App\Models\Category;
@@ -39,6 +40,7 @@ Route::get('/refund-Policy' , [FrontendController::class ,'refundPolicy']);
 Route::get('/payment-Policy' , [FrontendController::class ,'paymentPolicy']);
 Route::get('/about-us' , [FrontendController::class ,'aboutUs']);
 Route::get('/contact-us' , [FrontendController::class ,'contactUs']);
+Route::post('/contact-us/store' , [FrontendController::class ,'contactUsStore']);
 
 //productSearching...
 Route::get('/search-products' , [FrontendController::class ,'searchProduct']);
@@ -72,9 +74,12 @@ Route::get('/admin/product/list', [ProductController::class, 'ProductList']);
 Route::get('/admin/product/delete/{id}', [ProductController::class, 'ProductDelete']);
 Route::get('/admin/product/edit/{id}', [ProductController::class, 'ProductEdit']);
 Route::post('/admin/product/update/{id}', [ProductController::class, 'ProductUpdate']);
-
 Route::get('/admin/product/color/delete/{id}', [ProductController::class, 'colorDelete']);
 Route::get('/admin/product/size/delete/{id}', [ProductController::class, 'sizeDelete']);
 Route::get('/admin/product/galleryimage/delete/{id}', [ProductController::class, 'galleryImageDelete']);
 Route::get('/admin/product/galleryimage/edit/{id}', [ProductController::class, 'galleryImageEdit']);
 Route::post('/admin/product/galleryimage/update/{id}', [ProductController::class, 'galleryImageUpdate']);
+
+// Settings
+Route::get('/admin/general-settings', [SettingsController::class, 'showSettings']);
+Route::get('/admin/general-settings/update', [SettingsController::class, 'updateSettings']);
