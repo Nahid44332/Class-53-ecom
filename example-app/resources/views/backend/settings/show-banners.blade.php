@@ -7,11 +7,11 @@
           <div class="container-fluid">
             <!--begin::Row-->
             <div class="row">
-              <div class="col-sm-6"><h3 class="mb-0">Category List</h3></div>
+              <div class="col-sm-6"><h3 class="mb-0">Banner List</h3></div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
                   <li class="breadcrumb-item"><a href="/admin/dashboard/">Home</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Category List</li>
+                  <li class="breadcrumb-item active" aria-current="page">Banner List</li>
                 </ol>
               </div>
             </div>
@@ -30,7 +30,7 @@
                 <!-- /.card -->
                 <div class="card mb-4">
                   <div class="card-header">
-                    <h3 class="card-title">Manage Categories</h3>
+                    <h3 class="card-title">Manage Banners</h3>
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body p-0">
@@ -38,22 +38,19 @@
                       <thead>
                         <tr>
                           <th>SL</th>
-                          <th>image</th>
-                          <th>Category Name</th>
+                          <th>Banner</th>
                           <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
-                       @forelse ($categories as $category)
+                       @forelse ($banners as $banner)
                           <tr class="align-middle">
                           <td>{{$loop->index+1}}</td>
                           <td>
-                            <img src="{{asset('backend/images/category/'.$category->image)}}" height="100" width="100">
+                            <img src="{{asset('backend/images/banner/'.$banner->image)}}" height="200" width="400">
                           </td>
-                          <td>{{$category->name}}</td>
                           <td>
-                            <a href="{{url('/admin/category/edit/'.$category->id)}}" class="btn btn-primary">Edit</a>
-                             <a href="{{url('/admin/category/delete/'.$category->id)}}" onclick="return confirm('Are you sure delete category list?')" class="btn btn-danger">Delete</a>
+                            <a href="{{url('/admin/edit-banner'.$banner->id)}}" class="btn btn-primary">Edit</a>
                           </td>
                         </tr>
                        @empty

@@ -11,7 +11,7 @@
             <div class="container">
                 <div class="privacy-policy-content">
                     <div class="contant-des">
-                      {{$returnPolicy->return_policy}}
+                      {{!! $returnPolicy->return_policy !!}}
                     </div>
                 </div>
             </div>

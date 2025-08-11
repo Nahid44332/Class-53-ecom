@@ -82,4 +82,9 @@ Route::post('/admin/product/galleryimage/update/{id}', [ProductController::class
 
 // Settings
 Route::get('/admin/general-settings', [SettingsController::class, 'showSettings']);
-Route::get('/admin/general-settings/update', [SettingsController::class, 'updateSettings']);
+Route::post('/admin/general-settings/update', [SettingsController::class, 'updateSettings']);
+Route::get('/admin/policies', [SettingsController::class, 'showPolicies']);
+Route::post('/admin/policies/update', [SettingsController::class, 'updatePolicies']);
+Route::get('/admin/show-banner', [SettingsController::class, 'showBanner']);
+Route::get('/admin/edit-banner{id}', [SettingsController::class, 'editBanner']);
+Route::post('/admin/update-banner{id}', [SettingsController::class, 'updateBanner']);

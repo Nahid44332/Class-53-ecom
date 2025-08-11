@@ -11,7 +11,7 @@
             <div class="container">
                 <div class="privacy-policy-content">
                     <div class="contant-des">
-                     {{$aboutus->about_us}}
+                     {!! $aboutus->about_us !!}
                     </div>
                 </div>
             </div>
