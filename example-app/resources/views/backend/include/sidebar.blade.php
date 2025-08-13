@@ -74,9 +74,9 @@
                   </li>
                 </ul>
               </li>
-                <li class="nav-item menu-open">
+              <li class="nav-item menu-open">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon bi bi-speedometer"></i>
+                  <i class="fa-brands fa-product-hunt"></i>
                   <p>
                     Product
                     <i class="nav-arrow bi bi-chevron-right"></i>
@@ -97,10 +97,44 @@
                   </li>
                 </ul>
               </li>
-              </li>
-                <li class="nav-item menu-open">
+              <li class="nav-item menu-open">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-speedometer"></i>
+                  <p>
+                    Orders
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="#" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>All Orders</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item menu-open">
+                <a href="#" class="nav-link">
+                  <i class="fa-solid fa-id-badge"></i>
+                  <p>
+                    Contact Massege
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{url('/admin/contact-message/list')}}" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>List</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              </li>
+              <li class="nav-item menu-open">
+                <a href="#" class="nav-link">
+                  <i class="fa-solid fa-gear"></i>
                   <p>
                     Settings 
                     <i class="nav-arrow bi bi-chevron-right"></i>

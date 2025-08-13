@@ -3,6 +3,7 @@
 use App\Http\Controllers\backend\adminauthcontroller;
 use App\Http\Controllers\backend\AdminController;
 use App\Http\Controllers\backend\CategoryController;
+use App\Http\Controllers\backend\OrderController;
 use App\Http\Controllers\backend\ProductController;
 use App\Http\Controllers\backend\SettingsController;
 use App\Http\Controllers\backend\SubCategoryController;
@@ -33,7 +34,7 @@ Route::post('/product-details/add-to-card/{product_id}' , [FrontendController::c
 Route::get('/add-to-card/{product_id}' , [FrontendController::class ,'addToCart']);
 Route::get('/cart/delete/{id}', [FrontendController::class, 'deleteCartItem']);
 
-// policy
+// policy...
 Route::get('/privacy-policy' , [FrontendController::class ,'privacy']);
 Route::get('/terms-Conditions' , [FrontendController::class ,'terms']);
 Route::get('/refund-Policy' , [FrontendController::class ,'refundPolicy']);
@@ -45,29 +46,29 @@ Route::post('/contact-us/store' , [FrontendController::class ,'contactUsStore'])
 //productSearching...
 Route::get('/search-products' , [FrontendController::class ,'searchProduct']);
 
-// Catagoury
+// Catagoury...
 Route::get('/test-category' , [FrontendController::class ,'testCategory']);
-// admin site
+// admin site...
 Route::get('/admin/login' , [adminauthcontroller::class ,'adminlogin']);
 Route::get('/admin/logout' , [adminauthcontroller::class ,'adminlogout']);
 
 Auth::routes();
 Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard']);
-// Category Routes
+// Category Routes...
 Route::get('/admin/category/create', [CategoryController::class, 'categoryCreate']);
 Route::post('/admin/category/store', [CategoryController::class, 'categoryStore']);
 Route::get('/admin/category/list', [CategoryController::class, 'categoryList']);
 Route::get('/admin/category/delete/{id}', [CategoryController::class, 'categoryDelete']);
 Route::get('/admin/category/edit/{id}', [CategoryController::class, 'categoryEdit']);
 Route::post('/admin/category/update/{id}', [CategoryController::class, 'categoryUpdate']);
-//SubCategory Routes
+//SubCategory Routes...
 Route::get('/admin/sub-category/create', [SubCategoryController::class, 'subcategoryCreate']);
 Route::post('/admin/sub-category/store', [SubCategoryController::class, 'subcategoryStore']);
 Route::get('/admin/sub-category/list', [SubCategoryController::class, 'subcategoryList']);
 Route::get('/admin/sub-category/delete/{id}', [SubCategoryController::class, 'subcategoryDelete']);
 Route::get('/admin/sub-category/edit/{id}', [SubCategoryController::class, 'subcategoryEdit']);
 Route::post('/admin/sub-category/update/{id}', [SubCategoryController::class, 'subcategoryUpdate']);
-//product Routes
+//product Routes...
 Route::get('/admin/product/create', [ProductController::class, 'ProductCreate']);
 Route::post('/admin/product/store', [ProductController::class, 'ProductStore']);
 Route::get('/admin/product/list', [ProductController::class, 'ProductList']);
@@ -80,7 +81,7 @@ Route::get('/admin/product/galleryimage/delete/{id}', [ProductController::class,
 Route::get('/admin/product/galleryimage/edit/{id}', [ProductController::class, 'galleryImageEdit']);
 Route::post('/admin/product/galleryimage/update/{id}', [ProductController::class, 'galleryImageUpdate']);
 
-// Settings
+// Settings...
 Route::get('/admin/general-settings', [SettingsController::class, 'showSettings']);
 Route::post('/admin/general-settings/update', [SettingsController::class, 'updateSettings']);
 Route::get('/admin/policies', [SettingsController::class, 'showPolicies']);
@@ -88,3 +89,10 @@ Route::post('/admin/policies/update', [SettingsController::class, 'updatePolicie
 Route::get('/admin/show-banner', [SettingsController::class, 'showBanner']);
 Route::get('/admin/edit-banner{id}', [SettingsController::class, 'editBanner']);
 Route::post('/admin/update-banner{id}', [SettingsController::class, 'updateBanner']);
+
+//Contact Messsage..
+Route::get('/admin/contact-message/list', [SettingsController::class, 'contactMessage']);
+Route::get('/admin/contact-message/delete/{id}', [SettingsController::class, 'deleteContactMessage']);
+
+//Orders.....
+Route::get('/admin/order/all', [OrderController::class, 'showOrders']);

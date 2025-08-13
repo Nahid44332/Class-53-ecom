@@ -279,7 +279,7 @@ class FrontendController extends Controller
         $contactMessage->message = $request->message;
 
         $contactMessage->save();
-        toastr()->success('Your Message Sent Successfully Done!');
+        toastr()->success('Message Sent Successfully!');
         return redirect()->back();
     }
     public function searchProduct(Request $request)
