@@ -54,7 +54,7 @@
                           <td>{{$message->email}}</td>
                           <td>{{$message->message}}</td>
                           <td>
-                            <a href="{{url('/admin/contact-message/delete/'.$message->id)}}" onclick="return confirm('Are you sure delete Contect list?')" class="btn btn-danger">Delete</a>
+                            <a href="{{url('/admin/contact-message/delete/'.$message->id)}}" onclick="return confirm('Are you sure delete Contect list?')" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                           </td>
                         </tr>
                        @empty 

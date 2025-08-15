@@ -28,7 +28,7 @@
               role="menu"
               data-accordion="false"
             >
-              <li class="nav-item menu-open">
+              <li class="nav-item menu">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-speedometer"></i>
                   <p>
@@ -51,7 +51,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="nav-item menu-open">
+              <li class="nav-item menu">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-speedometer"></i>
                   <p>
@@ -74,7 +74,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="nav-item menu-open">
+              <li class="nav-item menu">
                 <a href="#" class="nav-link">
                   <i class="fa-brands fa-product-hunt"></i>
                   <p>
@@ -97,7 +97,7 @@
                   </li>
                 </ul>
               </li>
-              <li class="nav-item menu-open">
+              <li class="nav-item menu">
                 <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-speedometer"></i>
                   <p>
@@ -107,14 +107,14 @@
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{url('/admin/order/all')}}" class="nav-link">
                       <i class="nav-icon bi bi-circle"></i>
                       <p>All Orders</p>
                     </a>
                   </li>
                 </ul>
               </li>
-              <li class="nav-item menu-open">
+              <li class="nav-item menu">
                 <a href="#" class="nav-link">
                   <i class="fa-solid fa-id-badge"></i>
                   <p>
@@ -131,8 +131,7 @@
                   </li>
                 </ul>
               </li>
-              </li>
-              <li class="nav-item menu-open">
+              <li class="nav-item menu">
                 <a href="#" class="nav-link">
                   <i class="fa-solid fa-gear"></i>
                   <p>

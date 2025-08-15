@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+
+    public function Orderdetails()
+    {
+        return  $this->hasMany(OrderDetails::class, 'order_id' , 'id')->with('product');
+    }
 }

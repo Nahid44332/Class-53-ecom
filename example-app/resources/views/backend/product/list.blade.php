@@ -123,8 +123,8 @@
                             <td>{{$product->regular_price}}</td>
                             <td>{{$product->discount_price}}</td>
                             <td>
-                                <a href="{{url('/admin/product/edit/'.$product->id)}}" class="btn btn-primary">Edit</a>
-                                <a href="{{url('/admin/product/delete/'.$product->id)}}" onclick="return confirm('Are you sure Product Delete?')" class="btn btn-danger">Delete</a>
+                                <a href="{{url('/admin/product/edit/'.$product->id)}}" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="{{url('/admin/product/delete/'.$product->id)}}" onclick="return confirm('Are you sure Product Delete?')" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                         @endforeach

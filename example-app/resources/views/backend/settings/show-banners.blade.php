@@ -50,7 +50,7 @@
                             <img src="{{asset('backend/images/banner/'.$banner->image)}}" height="200" width="400">
                           </td>
                           <td>
-                            <a href="{{url('/admin/edit-banner'.$banner->id)}}" class="btn btn-primary">Edit</a>
+                            <a href="{{url('/admin/edit-banner'.$banner->id)}}" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
                           </td>
                         </tr>
                        @empty
