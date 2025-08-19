@@ -13,9 +13,14 @@ class OrderController extends Controller
         $this->middleware('auth');
     }
 
-    public function showOrders()
+    public function showOrders(Request $request)
     {
-        $orders = Order::with('OrderDetails')->paginate(20);
+        if(isset($request->search)){
+            $orders = Order::with('OrderDetails')->where('phone', $request->search)->paginate(20);
+        }
+        else{
+            $orders = Order::with('OrderDetails')->paginate(20);   
+        }
         return view('backend.order.show-orders', compact('orders'));
     }
 
