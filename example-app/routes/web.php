@@ -46,8 +46,6 @@ Route::post('/contact-us/store' , [FrontendController::class ,'contactUsStore'])
 //productSearching...
 Route::get('/search-products' , [FrontendController::class ,'searchProduct']);
 
-// Catagoury...
-Route::get('/test-category' , [FrontendController::class ,'testCategory']);
 // admin site...
 Route::get('/admin/login' , [adminauthcontroller::class ,'adminlogin']);
 Route::get('/admin/logout' , [adminauthcontroller::class ,'adminlogout']);
@@ -97,3 +95,6 @@ Route::get('/admin/contact-message/delete/{id}', [SettingsController::class, 'de
 //Orders.....
 Route::get('/admin/order/all', [OrderController::class, 'showOrders']);
 Route::post('/admin/order/status/{id}', [OrderController::class, 'updateOrderStatus']);
+Route::get('/admin/order/delete/{id}', [OrderController::class, 'deleteOrder']);
+Route::get('/admin/order/edit/{id}', [OrderController::class, 'editOrder']);
+Route::post('/admin/order/update/{id}', [OrderController::class, 'updateOrder']);

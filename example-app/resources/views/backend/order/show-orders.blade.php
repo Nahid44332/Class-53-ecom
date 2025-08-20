@@ -29,6 +29,7 @@
                        </div>
                         <div class="col-md-4 mb-3">
                             <button type="submit" class="btn btn-primary">Search</button>
+                            <a href="{{url('/admin/order/all')}}" class="btn btn-danger">Clear</a>
                         </div>
                     </form>
                 </div>
@@ -90,8 +91,8 @@
                                             </form>
                                         </td>
                                         <td>
-                                            <a href="#" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a href="#" onclick="return confirm('Are you sure Product Delete?')" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                            <a href="{{url('/admin/order/edit/'.$order->id)}}" class="btn btn-primary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                            <a href="{{url('/admin/order/delete/'.$order->id)}}" onclick="return confirm('Are you sure Product Delete?')" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
                                         </td>
                                     </tr>
                                     @endforeach
