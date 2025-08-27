@@ -28,7 +28,7 @@
             <!--begin::Row-->
             <div class="row g-4">
                 <!--begin::Col-->
-                <form action="#" method="POST" enctype="multipart/form-data">
+                <form action="{{url('/admin/order/update/'.$order->id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="col-md-6">
                         <!--begin::Quick Example-->
@@ -44,34 +44,38 @@
                                 <div class="row">
                                     <div class="mb-3 col-md-12">
                                         <label for="exampleInputEmail1" class="form-label">Invoice No*</label>
-                                        <input type="text" class="form-control" value="XYZ-1" id="name"
-                                            name="name" readonly />
+                                        <input type="text" class="form-control" value="{{$order->invoice_number}}" id="invoice_number"
+                                            name="invoice_number" readonly />
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <label for="exampleInputEmail1" class="form-label">Customer Name*</label>
-                                        <input type="text" class="form-control" value="Developer" id="name"
+                                        <input type="text" class="form-control" value="{{$order->name}}" id="name"
                                             name="name" required />
                                     </div>
                                     <div class="mb-3 col-md-6">
                                         <label for="exampleInputEmail1" class="form-label">Customer Phone*</label>
-                                        <input type="text" class="form-control" value="018XXXXXXXX" id="name"
-                                            name="name" required />
+                                        <input type="text" class="form-control" value="{{$order->phone}}" id="phone"
+                                            name="phone" required />
                                     </div>
                                     <div class="mb-3 col-md-12">
                                         <label for="exampleInputEmail1" class="form-label">Delivery Charge*</label>
-                                        <input type="text" class="form-control" value="80" id="name"
-                                            name="name" required />
+                                        <input type="text" class="form-control" value="{{$order->charge}}" id="charge"
+                                            name="charge" required />
                                     </div>
                                     <div class="mb-3 col-md-12">
                                         <label for="exampleInputEmail1" class="form-label">Customer Address*</label>
-                                        <textarea class="form-control" name="address" id="address">Dhaka</textarea>
+                                        <textarea class="form-control" name="address" id="address" required>{{$order->address}}</textarea>
                                     </div>
                                     <div class="mb-3 col-md-12">
                                         <label for="exampleInputEmail1" class="form-label">Courier*</label>
                                         <select name="courier_name" class="form-control">
-                                            <option selected disabled>Select Courier</option>
-                                            <option value="Steadfast">Steadfast</option>
-                                            <option value="Pathao">Pathao</option>
+                                            <option value="">Select Courier</option>
+                                            <option value="Steadfast" @if ($order->courier_name == "Steadfast")
+                                                Selected
+                                            @endif>Steadfast</option>
+                                            <option value="Pathao" @if ($order->courier_name == "Pathao")
+                                                Selected
+                                            @endif>Pathao</option>
                                         </select>
                                     </div>
                                 </div>
@@ -92,37 +96,27 @@
                             <!--begin::Form-->
                             <!--begin::Body-->
                             <div class="card-body">
-                                <div class="row">
-                                    <div class="mb-3 col-md-6">
-                                        <label for="exampleInputEmail1" class="form-label">Product Name</label>
-                                        <input type="text" class="form-control" value="Phone" id="name"
-                                            name="name" readonly />
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label for="exampleInputEmail1" class="form-label">Product Quantity</label>
-                                        <input type="text" class="form-control" value="4" id="name"
-                                            name="name" />
-                                    </div>
-                                     <div class="mb-3 col-md-6">
-                                        <label for="exampleInputEmail1" class="form-label">Product Color</label>
-                                        <input type="text" class="form-control" value="Black" id="name"
-                                            name="name" />
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label for="exampleInputEmail1" class="form-label">Product Size</label>
-                                        <input type="text" class="form-control" value="L, M" id="name"
-                                            name="name" />
-                                    </div>
-                                    <div class="mb-3 col-md-6">
-                                        <label for="exampleInputEmail1" class="form-label">Total Price</label>
-                                        <input type="text" class="form-control" value="1200" id="name"
-                                            name="name" />
-                                    </div>
-                                    <div class="mb-3 col-md-12">
-                                        <p class="form-lavel"><b>product Image</b></p>
-                                        <img src="https://placehold.co/100x100" alt="">
+                               @foreach ($order->Orderdetails as $details)
+                                    <form action="{{url('/admin/order/deails/update/'.$details->id)}}" method="POST">
+                                        @csrf
+                                        <div class="md-5">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img src="{{asset('backend/images/product/'.$details->product->image)}}" height="100" width="100"><br>
+                                            {{$details->product->name}}
+                                        </div>
+                                        <div class="col-md-8">
+                                            <label>Unit Price:</label><input type="number" class="form-control" name="" value="{{$details->price}}" readonly>
+                                            <label>Quantity:</label><input type="number" class="form-control" name="qty" value="{{$details->qty}}" required>
+                                            <label>Color:</label><input type="text" class="form-control" name="color" value="{{$details->color}}">
+                                            <label>Size:</label><input type="text" class="form-control" name="size" value="{{$details->size}}">
+                                            <input type="submit" value="Update" class=" mt-3 btn btn-success">
+                                        </div>
                                     </div>
                                 </div>
+                                    </form>
+                               @endforeach
+                                 <label>Total Price:</label><input type="number" class="form-control" name="price" value="{{$order->price}}" required>
                             </div>
                             <!--end::Body-->
                             <!--begin::Footer-->
