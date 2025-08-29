@@ -93,7 +93,7 @@ Route::get('/admin/contact-message/list', [SettingsController::class, 'contactMe
 Route::get('/admin/contact-message/delete/{id}', [SettingsController::class, 'deleteContactMessage']);
 
 //Orders.....
-Route::get('/admin/order/all', [OrderController::class, 'showOrders']);
+Route::get('/admin/order/{status}', [OrderController::class, 'showOrders']);
 Route::post('/admin/order/status/{id}', [OrderController::class, 'updateOrderStatus']);
 Route::get('/admin/order/delete/{id}', [OrderController::class, 'deleteOrder']);
 Route::get('/admin/order/edit/{id}', [OrderController::class, 'editOrder']);

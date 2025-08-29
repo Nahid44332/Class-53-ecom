@@ -14,17 +14,31 @@ class OrderController extends Controller
         $this->middleware('auth');
     }
 
-    public function showOrders(Request $request)
+    public function showOrders(Request $request, $status)
     {
-        if(isset($request->search)){
-            $orders = Order::with('OrderDetails')->where('phone','LIKE',  '%'.$request->search.'%')
+         if(isset($request->search) && $status == "all"){
+            $orders = Order::with('OrderDetails')
+            ->where('phone','LIKE',  '%'.$request->search.'%')
+            ->orWhere('name', 'LIKE', '%'.$request->search.'%')
+            ->orWhere('invoice_number', 'LIKE', '%'.$request->search.'%')->paginate(20);
+        }
+
+        else if(isset($request->search)&& $status != "all"){
+            $orders = Order::with('OrderDetails')
+            ->where('status', $status)
+            ->where('phone','LIKE',  '%'.$request->search.'%')
             ->orWhere('name', 'LIKE', '%'.$request->search.'%')
             ->orWhere('invoice_number', 'LIKE', '%'.$request->search.'%')->paginate(20);
         }
         else{
-            $orders = Order::with('OrderDetails')->paginate(20);   
+           if($status == "all"){
+             $orders = Order::with('OrderDetails')->paginate(20); 
+           }
+           else{
+            $orders = Order::with('OrderDetails')->where('status', $status)->paginate(20);
+           }  
         }
-        return view('backend.order.show-orders', compact('orders'));
+        return view('backend.order.show-orders', compact('orders','status'));
     }
 
     public function updateOrderStatus(Request $request, $id)

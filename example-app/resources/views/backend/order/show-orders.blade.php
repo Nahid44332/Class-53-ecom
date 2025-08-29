@@ -22,14 +22,14 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <form action="{{url('/admin/order/all')}}" method="GET">
+                    <form action="{{url('/admin/order/'.$status)}}" method="GET">
                         @csrf
                        <div class="col-md-8 mb-3">
                          <input type="text" class="form-control" name="search" id="search" required>
                        </div>
                         <div class="col-md-4 mb-3">
                             <button type="submit" class="btn btn-primary">Search</button>
-                            <a href="{{url('/admin/order/all')}}" class="btn btn-danger">Clear</a>
+                            <a href="{{url('/admin/order/'.$status)}}" class="btn btn-danger">Clear</a>
                         </div>
                     </form>
                 </div>

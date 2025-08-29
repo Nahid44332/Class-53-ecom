@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\backend;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Order;
 
 class AdminController extends Controller
 {
@@ -13,6 +13,12 @@ class AdminController extends Controller
     }
     public function adminDashboard()
     {
-    return view('backend.admin-dashboard');
+        $allOrders = Order::count();
+        $pendingOrders = Order::where('status', 'pending')->count();
+        $confirmedOrders = Order::where('status', 'confirmed')->count();
+        $deliveredOrders = Order::where('status', 'delivered')->count();
+        $cancelledOrders = Order::where('status', 'cancelled')->count();
+        $returnedOrders = Order::where('status', 'returned')->count();
+        return view('backend.admin-dashboard', compact('allOrders', 'pendingOrders', 'confirmedOrders', 'deliveredOrders','cancelledOrders', 'returnedOrders'));
     }
 }

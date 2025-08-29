@@ -112,6 +112,36 @@
                       <p>All Orders</p>
                     </a>
                   </li>
+                  <li class="nav-item">
+                    <a href="{{url('/admin/order/pending')}}" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Pending Orders</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{url('/admin/order/confirmed')}}" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Confirmed Orders</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{url('/admin/order/delivered')}}" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Delivered Orders</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{url('/admin/order/cancelled')}}" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Cancelled Orders</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{url('/admin/order/returned')}}" class="nav-link">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Returned Orders</p>
+                    </a>
+                  </li>
                 </ul>
               </li>
               <li class="nav-item menu">
