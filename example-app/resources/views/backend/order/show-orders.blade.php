@@ -77,6 +77,9 @@
                                         <td>
                                             {{$order->courier_name ?? "Courier Not Selected"}}
                                             <p class="text-success">{{$order->consignment_id}}</p>
+                                            @if ($order->courier_name != Null && $order->consignment_id == null)
+                                                <a href="{{url('/admin/Order-courier-entry/'.$order->id)}}" class="btn btn-success">Entry Courier</a>
+                                            @endif
                                         </td>
                                         <td>
                                             <form action="{{url('/admin/order/status/'.$order->id)}}" method="POST" id="statusUpdate{{$order->id}}">

@@ -98,3 +98,10 @@ Route::post('/admin/order/status/{id}', [OrderController::class, 'updateOrderSta
 Route::get('/admin/order/delete/{id}', [OrderController::class, 'deleteOrder']);
 Route::get('/admin/order/edit/{id}', [OrderController::class, 'editOrder']);
 Route::post('/admin/order/update/{id}', [OrderController::class, 'updateOrder']);
+
+// Courier....
+Route::get('/admin/Order-courier-entry/{order_id}', [OrderController::class, 'courierEntry']);
+
+//Change Credentians
+Route::get('/admin/change-credentials', [SettingsController::class, 'showCredentials']);
+Route::post('/admin/update-credentials', [SettingsController::class, 'updateCredentials']);
