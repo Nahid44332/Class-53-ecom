@@ -190,13 +190,13 @@ class FrontendController extends Controller
         $order->ip_address = $request->ip();
         $previousOrder = Order::orderBy('id', 'desc')->first();
 
-        if($previousOrder == Null){
+       if($previousOrder == null){
             $generateInvoice = "BM-1";
-            $order->invoice_number =  $generateInvoice;
-        }
-        elseif($previousOrder != Null){
-            $generateInvoice = "BM-".$previousOrder->id+1;
-            $order->invoice_number = $generateInvoice;
+        $order->invoice_number = $generateInvoice;
+            }
+    else{
+        $generateInvoice = "BM-".($previousOrder->id+1);
+        $order->invoice_number = $generateInvoice;
         }
         $order->name = $request->name;
         $order->phone = $request->phone;

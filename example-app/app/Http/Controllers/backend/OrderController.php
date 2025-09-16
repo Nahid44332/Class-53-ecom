@@ -133,4 +133,19 @@ class OrderController extends Controller
        toastr()->success("Courier Entry Successfull!");
         return redirect()->back();
     }
+
+    // print Invoice
+    public function printInvoice($order_id)
+    {
+        $order = Order::with('Orderdetails')->where('id', $order_id)->first();
+        return view('backend.order.invoice',  compact('order'));
+    }
+
+    public function printBulkInvoice(Request $request)
+    {
+        $orderIds = $request->order_id;
+        $orders = Order::with('Orderdetails')->whereIn('id', $orderIds)->get();
+
+        return view('backend.order.bulk-invoice', compact('orders'));
+    }
 }

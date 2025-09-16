@@ -10,6 +10,7 @@ use App\Http\Controllers\backend\SubCategoryController;
 use App\Http\Controllers\FrontendController;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 // Route::get('/', function () {
 //     return view('frontend.index');
@@ -47,10 +48,10 @@ Route::post('/contact-us/store' , [FrontendController::class ,'contactUsStore'])
 Route::get('/search-products' , [FrontendController::class ,'searchProduct']);
 
 // admin site...
-Route::get('/admin/login' , [adminauthcontroller::class ,'adminlogin']);
+Route::get('/admin/login' , [adminauthcontroller::class ,'adminlogin'])->name('admin.login');
 Route::get('/admin/logout' , [adminauthcontroller::class ,'adminlogout']);
 
-Auth::routes();
+Auth::routes(['register' => false]);
 Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard']);
 // Category Routes...
 Route::get('/admin/category/create', [CategoryController::class, 'categoryCreate']);
@@ -105,3 +106,7 @@ Route::get('/admin/Order-courier-entry/{order_id}', [OrderController::class, 'co
 //Change Credentians
 Route::get('/admin/change-credentials', [SettingsController::class, 'showCredentials']);
 Route::post('/admin/update-credentials', [SettingsController::class, 'updateCredentials']);
+
+//Invoice Print.....
+Route::get('/admin/print-invoice/{order_id}', [OrderController::class, 'printInvoice']);
+Route::post('/admin/bulk-print-invoice', [OrderController::class, 'printBulkInvoice']);
