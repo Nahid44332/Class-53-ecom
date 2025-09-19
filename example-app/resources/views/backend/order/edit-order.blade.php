@@ -97,9 +97,7 @@
                             <!--begin::Body-->
                             <div class="card-body">
                                @foreach ($order->Orderdetails as $details)
-                                    <form action="{{url('/admin/order/deails/update/'.$details->id)}}" method="POST">
-                                        @csrf
-                                        <div class="md-5">
+                                        <div class="md-5" id="subform" data-id="{{$details->id}}">
                                     <div class="row">
                                         <div class="col-md-4">
                                             <img src="{{asset('backend/images/product/'.$details->product->image)}}" height="100" width="100"><br>
@@ -110,11 +108,10 @@
                                             <label>Quantity:</label><input type="number" class="form-control" name="qty" value="{{$details->qty}}" required>
                                             <label>Color:</label><input type="text" class="form-control" name="color" value="{{$details->color}}">
                                             <label>Size:</label><input type="text" class="form-control" name="size" value="{{$details->size}}">
-                                            <input type="submit" value="Update" class=" mt-3 btn btn-success">
+                                            <input type="button" onclick="submitForm({{$details->id}})" value="Update" class="form-control mt-3 btn btn-success">
                                         </div>
                                     </div>
                                 </div>
-                                    </form>
                                @endforeach
                                  <label>Total Price:</label><input type="number" class="form-control" name="price" value="{{$order->price}}" required>
                             </div>
@@ -137,3 +134,24 @@
     </div>
     <!--end::App Content-->
 @endsection
+@push('script')
+    <script>
+        function submitForm(id){
+            subform = document.querySelector('#subform[data-id="'+id+'"]');
+
+            formData = new FormData();
+
+            formData.append('_token', '{{ csrf_token() }}');
+            formData.append('qty', subform.querySelector('[name="qty"]').value);
+            formData.append('color', subform.querySelector('[name="color"]').value);
+            formData.append('size', subform.querySelector('[name="size"]').value);
+
+            fetch('/admin/order-details/update/'+id,{
+                method: 'POST',
+                body: formData
+            }).then(res => res.json()).then(data => {
+                alert("Updated Successfully");
+            })
+        }
+    </script>
+@endpush
